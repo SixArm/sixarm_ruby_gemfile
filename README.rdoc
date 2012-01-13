@@ -1,0 +1,12 @@
+= SixArm.com » Ruby » Gemfile chock full of gems and descriptions
+
+Author:: Joel Parker Henderson, joel@joelparkerhenderson.com
+Copyright:: Copyright (c) 2006-2011 Joel Parker Henderson
+License:: See LICENSE.txt file
+
+This is a big Gemfile with various gems we use and recommend.
+
+Take what you need, suggest updates as you can, and when you
+do your own Gemfile we recommend specifying your gem versions.
+
+
