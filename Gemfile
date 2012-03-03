@@ -185,6 +185,7 @@ gem 'nokogiri'  # Parser for HTML, XML, SAX, and Reader with XPath and CSS selec
 gem 'ParseTree'  # Extracts the parse tree for Ruby code and returns a sexp.
 gem 'prism'  # Microformat parser and HTML toolkit powered by Nokogiri.
 gem 'psych'  # A libyaml wrapper for Ruby with native libraries.
+gem 'rabl'  # Ruby API Builder Language templating with json, bson, xml, plist, msgpack.
 gem 'redcarpet'  # Markdown interpreter in Ruby with speed and safety.
 gem 'representative'  # XML/JSON representations of your Ruby objects.
 gem 'representative_view'  # Integrate Representative as an ActionView template format.
@@ -236,7 +237,7 @@ gem 'rubyvis' 	 # Ruby port of Stanford Protovis library.
 gem 'sparklines'  # Tiny graphs especially good for displaying inline data.
 gem 'svg-graph'  # SVG:::Graph is a pure Ruby library for generating charts.
 
-# HTTP
+# HTTP & REST
 gem 'browser'  # Do some browser detection with Ruby, and includes ActionController integration.
 #gem 'cramp'  # Fully asynchronous IO built on top of EventMachine for many connections. [requires Rails 3.0]
 gem 'curb'  # Ruby-language bindings for curl's library to do client-side URL transfer.
