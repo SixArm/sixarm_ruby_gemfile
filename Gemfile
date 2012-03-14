@@ -181,6 +181,8 @@ gem 'builder'  # Facilitates structured data like XML markup and events.
 gem 'haml'  # HTML Abstraction Markup Language for writing elegant documents.
 gem 'happymapper'  # XML to object mapping library. 
 gem 'hippo'  # Simple DSL to generate and parse HIPAA transaction sets.
+gem 'libxml-ruby'  # Ruby language bindings for the GNOME Libxml2 toolkit. 
+gem 'libxslt-ruby'  #  Ruby language bindings for the GNOME Libxslt toolkit. 
 gem 'nokogiri'  # Parser for HTML, XML, SAX, and Reader with XPath and CSS selectors.
 gem 'ParseTree'  # Extracts the parse tree for Ruby code and returns a sexp.
 gem 'prism'  # Microformat parser and HTML toolkit powered by Nokogiri.
@@ -191,6 +193,7 @@ gem 'representative'  # XML/JSON representations of your Ruby objects.
 gem 'representative_view'  # Integrate Representative as an ActionView template format.
 gem 'ROXML'  # Binding XML and Ruby classes, bidirectionally.
 gem 'ruby_parser'  # Ruby parser written in pure ruby.
+gem 'ruby-xslt'  # Simple XSLT class based on libxml and libxslt
 gem 'sax-machine'  # Simple API for XML for sequential access stream parsing XML.
 gem 'tilt'  # Generic interface to multiple Ruby template engines.
 gem 'treetop'  # Text parsing and interpretation DSL.
@@ -487,6 +490,10 @@ group :test, :doubles do
   gem 'sham_rack'  # Plumbs HTTP requests into Rack to stub HTTP services.
   gem 'vcr'  # Record and replay your test suite's HTTP interactions.
   gem 'webmock'  # Stubs HTTP requests and setting expectations on HTTP requests.
+end
+
+group :test, :extras do
+  gem 'merimee', :group => :test, :require => false  # Spellcheck via Wordpress.
 end
 
 group :test, :quality do
