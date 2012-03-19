@@ -136,6 +136,7 @@ gem 'rghost'  # Ruby Ghostscript Engine is a document creation and conversion AP
 # Encryption
 gem 'bcrypt-ruby'  # Secure algorithm for hashing passwords.
 gem 'encryptor'  # Wrapper for the standard ruby OpenSSL library.
+gem 'pbkdf2'  # Password Based Key Derivation Function 2 (PBKDF2) 
 
 # Extensions
 #gem 'facets'  # Premier collection of extension methods for Ruby. [problem with overriding]
