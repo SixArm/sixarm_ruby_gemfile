@@ -446,7 +446,7 @@ group :test, :tdd do
   gem 'ZenTest'  # Speeds up XP by scanning your target and unit-test code.
 end
 
-group :test, :rspec
+group :test, :rspec do
   gem 'rspec'  # Behavior Driven Development (BDD) for Ruby
   gem 'rspec-core'  # RSpec runner and example groups.
   gem 'rspec-expectations'  # RSpec matchers for should and should_not.
