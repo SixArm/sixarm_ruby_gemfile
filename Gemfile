@@ -184,6 +184,7 @@ gem 'builder'  # Facilitates structured data like XML markup and events.
 gem 'haml'  # HTML Abstraction Markup Language for writing elegant documents.
 gem 'happymapper'  # XML to object mapping library. 
 gem 'hippo'  # Simple DSL to generate and parse HIPAA transaction sets.
+gem 'htmlentities'  # Encode/decode HTML & XML named and numerical entities.
 gem 'libxml-ruby'  # Ruby language bindings for the GNOME Libxml2 toolkit. 
 gem 'libxslt-ruby'  #  Ruby language bindings for the GNOME Libxslt toolkit. 
 gem 'nokogiri'  # Parser for HTML, XML, SAX, and Reader with XPath and CSS selectors.
