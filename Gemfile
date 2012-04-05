@@ -92,6 +92,7 @@ gem 'memcached'  # Ruby interface to the libmemcached C client.
 gem 'mysql2'  # Ruby client library for MySQL relational database.
 gem 'pg'  # Ruby client library for PostgreSQL relational database.
 gem 'redis'  # Ruby client library for the Redis key value storage engine.
+gem 'redis-objects'  # Maps Redis types directly to Ruby objects
 gem 'mock_redis', :group => :test  # Provides similar interface as redis-rb but with data in memory.
 gem 'redis-namespace'  # Adds a Redis::Namespace class to namespace Redis keys. 
 gem 'sqlite3'  # Temporary lightweight database especially for testing.
