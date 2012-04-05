@@ -202,6 +202,7 @@ gem 'ruby-xslt'  # Simple XSLT class based on libxml and libxslt
 gem 'sax-machine'  # Simple API for XML for sequential access stream parsing XML.
 gem 'tilt'  # Generic interface to multiple Ruby template engines.
 gem 'treetop'  # Text parsing and interpretation DSL.
+gem 'unicode_utils'  # Unicode utilties for UTF strings and characters.
 gem 'xpath'  # DSL for generating XPath expressions.
 gem 'yamler'  # YAML helpers for loading ERB, merging, etc.
 
