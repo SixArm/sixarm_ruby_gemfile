@@ -342,6 +342,7 @@ group :development do
   gem 'haml-rails'  # Provides Haml generators for Rails 3 and templating engine.
   gem 'launchy'  # Start cross-platform applications like a browser or email.
   gem 'libnotify'  # Ruby bindings for libnotify using FFI.
+  gem 'pry'  # An IRB alternative and runtime developer console.
   gem 'thin'  # Ruby web server that is secure, stable, fast and extensible.
 end
 
