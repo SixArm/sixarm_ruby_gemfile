@@ -1,5 +1,10 @@
 source 'http://rubygems.org'
 
+# To Do
+wrap  # Better :before and :after callbacks for any ruby class
+irbcp'  # IRB command "cp" to access to your system's clipboard for copy and paste.
+slug  # A simple slug library that supports unicode.
+
 # Rails
 gem 'rails', '~> 3.2.2'  # Ruby On Rails, our main rapid development framework.
 gem 'jquery-rails'  # Connects jQuery JavaScript library to Rails.
@@ -432,16 +437,13 @@ group :development, :debugging do
   gem 'rbtrace'  # Shows method calls happening inside ruby processes.
   gem 'ruby_core_source'  # Retrieve Ruby core source files.
   gem 'ruby-debug19'  # Command line interface for ruby-debug.
-  gem 'ruby-prof'  # fast code profiler for Ruby with native C code.
+  gem 'ruby-prof'  # Fast code profiler for Ruby with native C code.
   gem 'rubygems-test'  # Commands for testing gems and reporting results.
 end
 
 group :test, :tdd do
   gem 'database_cleaner'  # Ensures a clean state for testing.
   gem 'diff_matcher'  # Performs recursive matches on values.
-  gem 'minitest'  # Ruby's core TDD, BDD, mocking, and benchmarking.
-  gem 'factory_girl'  # Framework and DSL for test factories.
-  gem 'factory_girl_rails'  # Integrates Factory Girl and Rails.
   gem 'parallel_tests'  # Run MiniTest + RSpec + Cucumber on multi cores and CPUs.
   gem 'spork'  # A forking Drb spec server for faster startup of tests.
   gem 'turn'  # Test::Unit results now display each test on its own line.
@@ -449,7 +451,28 @@ group :test, :tdd do
   gem 'ZenTest'  # Speeds up XP by scanning your target and unit-test code.
 end
 
-group :test, :rspec do
+gem :test_with_minitest_spec_family_for_rails do
+  gem 'capybara'  # Integration test tool to simulate a user on a website.
+  gem 'capybara_minitest_spec'  # MiniTest::Spec expectations for Capybara node matchers.
+  gem 'minitest'  # Ruby's core TDD, BDD, mocking, and benchmarking.
+  gem 'minitest-capybara'  #  Add Capybara driver switching parameters to minitest/spec.
+  gem 'minitest-reporters'  # Create customizable MiniTest output formats.
+  gem 'minitest-matchers'  # RSpec/Shoulda-style matchers for minitest.
+  gem 'minitest-metadata'  # Annotate tests with metadata key-value pairs.
+  gem 'minitest-spec-rails'  # Drop in MiniTest::Spec support for Rails 3.
+  gem 'minitest-reporters'  # Create customizable MiniTest output formats 
+  gem 'miniskirt'  # Factory creators to go with minitest.
+  gem 'ruby-prof'  # Fast code profiler for Ruby with native C code.
+  gem 'turn', :require => false  # Test::Unit results show each test on its own line.
+  gem 'valid_attribute'  # Minimalist validation BDD for ActiveModel specs.
+end
+
+group :test_with_factory_girl_for_rails do
+  gem 'factory_girl'  # Framework and DSL for test factories.
+  gem 'factory_girl_rails'  # Integrates Factory Girl and Rails.
+end
+
+group :test_with_rspec do
   gem 'rspec'  # Behavior Driven Development (BDD) for Ruby
   gem 'rspec-core'  # RSpec runner and example groups.
   gem 'rspec-expectations'  # RSpec matchers for should and should_not.
@@ -488,7 +511,7 @@ group :test, :doubles do
   # Local
   gem 'bourne'  # Extends mocha with spies to track and query our mocks and stubs.
   gem 'forgery'  # Mock data generator for names, places, emails, etc.
-  gem 'mocha'  # Mock and stub test doubles.
+  gem 'mocha'  # Mocking and stubbing library for test doubles for Ruby.
   gem 'rr'  # Test double framework for mocks, stubs, fakes, spies, proxies.
   gem 'timecop'  # Mocks Ruby Time.now, Date.now, DateTime.now for time travel.
   # Remote
