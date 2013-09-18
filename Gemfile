@@ -483,6 +483,15 @@ group :development, :ripl do
   gem 'ripl-short_errors'  #  Only show the first backtrace entry of errors.
 end
 
+group :development, :pry do
+  gem 'pry'  # An IRB alternative and runtime developer console.
+  gem 'pry-doc'  # YARD and extended documentation support for Pry.
+  gem 'pry-exception_explorer'  # Enter the context of exceptions.
+  gem 'pry-nav'  # Turn Pry into a primitive debugger with 'step' and 'next'.
+  gem 'pry-stack_explorer'  # Walk the stack in a Pry session.
+  gem 'pry-rails'  # Use Pry as your rails console.
+end
+
 group :development, :guard do
   gem 'guard'  # Command line tool for file modification events
   gem 'guard-annotate'  # Annotates Rails classes based on the db schema.
@@ -525,8 +534,9 @@ group :development, :debugging do
   gem 'lll'  # Line logger for debugging that displays an expression and its value.
   gem 'rbtrace'  # Shows method calls happening inside ruby processes.
   gem 'ruby_core_source'  # Retrieve Ruby core source files.
-  gem 'ruby-debug19'  # Command line interface for ruby-debug.
-  gem 'ruby-prof'  # Fast code profiler for Ruby with native C code.
+  #gem 'ruby-debug19'  # Command line interface for ruby-debug. [for Ruby 1.8.7]
+  gem 'debugger'  # Fast implementation of the standard Ruby debugger debug.rb. [for Ruby 1.9.2]
+  gem 'ruby-prof'  # fast code profiler for Ruby with native C code.
   gem 'rubygems-test'  # Commands for testing gems and reporting results.
 end
 
