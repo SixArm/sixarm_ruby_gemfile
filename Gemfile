@@ -1,9 +1,97 @@
 source 'http://rubygems.org'
 
-# To Do
-wrap  # Better :before and :after callbacks for any ruby class
-irbcp'  # IRB command "cp" to access to your system's clipboard for copy and paste.
-slug  # A simple slug library that supports unicode.
+### To Do
+
+gem 'wrap'  # Better :before and :after callbacks for any ruby class
+gem 'irbcp'  # IRB command "cp" to access to your system's clipboard for copy and paste.
+gem 'slug'  # A simple slug library that supports unicode.
+
+gem 'rails', '4.0.0'
+
+# Servers
+gem 'puma'
+gem 'unicorn'
+
+gem 'omniauth'
+gem 'omniauth-twitter'
+gem 'omniauth-github'
+
+# Multi-environment configuration
+# gem 'simpleconfig'
+
+# API
+# gem 'rabl'
+
+# ORM
+gem 'pg'
+
+# Performance and Exception management
+# gem 'airbrake'
+# gem 'newrelic_rpm'
+
+# Security
+# gem 'secure_headers'
+
+# Miscellanea
+# gem 'google-analytics-rails'
+# gem 'haml'
+# gem 'http_accept_language'
+gem 'jquery-rails'
+gem 'nokogiri'
+# gem 'resque', require: 'resque/server' # Resque web interface
+
+# Assets
+gem 'coffee-rails', '~> 4.0.0'
+# gem 'haml_assets'
+
+# gem 'handlebars_assets'
+gem 'i18n-js'
+gem 'jquery-turbolinks'
+gem 'less-rails'
+gem 'sass-rails', '~> 4.0.0'
+gem 'therubyracer'
+gem 'turbolinks'
+gem 'twitter-bootstrap-rails', github: 'diowa/twitter-bootstrap-rails', branch: 'fontawesome-3.2.1'
+gem 'uglifier', '>= 1.3.0'
+
+group :development, :test do
+  gem 'debugger'
+  gem 'delorean'
+  gem 'factory_girl_rails'
+  gem 'faker'
+  gem 'pry'
+  gem 'pry-rails'
+end
+
+group :development do
+  gem 'bullet'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'meta_request'
+end
+
+group :test do
+  gem 'capybara'
+  gem 'coveralls', require: false
+  gem 'database_cleaner'
+  gem 'email_spec'
+  gem 'launchy'
+  gem 'rspec'
+  gem 'rspec-rails'
+  gem 'selenium-webdriver'
+  gem 'simplecov', require: false
+  gem 'webmock', require: false
+end
+
+group :staging, :production do
+  gem 'rails_12factor'
+end
+
+##########
+
+
+# Init
+gem 'dotenv'  # Loads environment variables from `.env` file.
 
 # Rails
 gem 'rails', '~> 3.2.2'  # Ruby On Rails, our main rapid development framework.
@@ -104,6 +192,7 @@ gem 'sqlite3'  # Temporary lightweight database especially for testing.
 
 # Queues
 gem 'amqp'  # Advanced Message Queuing Protocol open standard for messaging middleware.
+gem 'dalli'  # High performance memcached client for Ruby.
 gem 'delayed_job'  # Background job queue for ActiveRecord backed by Rails database.
 gem 'resque'  # Background job queue backed by Redis, especially good for scale.
 gem 'resque-scheduler'  # Lightweight job scheduling system built on top of Resque.
@@ -509,9 +598,9 @@ end
 
 group :test, :doubles do
   # Local
-  gem 'bourne'  # Extends mocha with spies to track and query our mocks and stubs.
+  gem 'bourne', :require => false  # Extends mocha with spies to track and query our mocks and stubs.
   gem 'forgery'  # Mock data generator for names, places, emails, etc.
-  gem 'mocha'  # Mocking and stubbing library for test doubles for Ruby.
+  gem 'mocha', :require => false  # Mocking and stubbing library for test doubles for Ruby.
   gem 'rr'  # Test double framework for mocks, stubs, fakes, spies, proxies.
   gem 'timecop'  # Mocks Ruby Time.now, Date.now, DateTime.now for time travel.
   # Remote
