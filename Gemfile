@@ -1,101 +1,13 @@
 source 'http://rubygems.org'
 
-### To Do
+### Platform
 
-gem 'wrap'  # Better :before and :after callbacks for any ruby class
-gem 'irbcp'  # IRB command "cp" to access to your system's clipboard for copy and paste.
-gem 'slug'  # A simple slug library that supports unicode.
-
-gem 'rails', '4.0.0'
-
-# Servers
-gem 'puma'
-gem 'unicorn'
-
-gem 'omniauth'
-gem 'omniauth-twitter'
-gem 'omniauth-github'
-
-# Multi-environment configuration
-# gem 'simpleconfig'
-
-# API
-# gem 'rabl'
-
-# ORM
-gem 'pg'
-
-# Performance and Exception management
-# gem 'airbrake'
-# gem 'newrelic_rpm'  # New Relic performance management system.
-
-
-# Security
-# gem 'secure_headers'
-
-# Miscellanea
-# gem 'google-analytics-rails'
-# gem 'haml'
-# gem 'http_accept_language'
-gem 'jquery-rails'
-gem 'nokogiri'
-# gem 'resque', require: 'resque/server' # Resque web interface
-
-# Assets
-gem 'coffee-rails', '~> 4.0.0'
-# gem 'haml_assets'
-
-# gem 'handlebars_assets'
-gem 'i18n-js'
-gem 'jquery-turbolinks'
-gem 'less-rails'
-gem 'sass-rails', '~> 4.0.0'
-gem 'therubyracer'
-gem 'turbolinks'
-gem 'twitter-bootstrap-rails', github: 'diowa/twitter-bootstrap-rails', branch: 'fontawesome-3.2.1'
-gem 'uglifier', '>= 1.3.0'
-
-group :development, :test do
-  gem 'debugger'
-  gem 'delorean'
-  gem 'factory_girl_rails'
-  gem 'faker'
-  gem 'pry'
-  gem 'pry-rails'
-end
-
-group :development do
-  gem 'bullet'
-  gem 'better_errors'
-  gem 'binding_of_caller'
-  gem 'meta_request'
-end
-
-group :test do
-  gem 'capybara'
-  gem 'coveralls', require: false
-  gem 'database_cleaner'
-  gem 'email_spec'
-  gem 'launchy'
-  gem 'rspec'
-  gem 'rspec-rails'
-  gem 'selenium-webdriver'
-  gem 'simplecov', require: false
-  gem 'webmock', require: false
-end
-
-group :staging, :production do
-  gem 'rails_12factor'
-end
-
-##########
-
-
-# Init
+# Environment
 gem 'dotenv'  # Loads environment variables from `.env` file.
-
+gem 'require_all'  # Simple way to load Ruby code from directories.
+  
 # Rails
-gem 'rails', '~> 3.2.2'  # Ruby On Rails, our main rapid development framework.
+gem 'rails', # Ruby On Rails, our main rapid development framework.
 gem 'jquery-rails'  # Connects jQuery JavaScript library to Rails.
 gem 'jquery-tmpl-rails'  # jQuery Templates for the Rails asset pipeline.
 
@@ -107,6 +19,24 @@ gem 'rack-openid'  # Provides a more HTTPish API around the ruby-openid library.
 gem 'rack-ssl'  # Rack middleware to force SSL/TLS.
 gem 'rack-test'  # Small, simple testing API for Rack apps.
 
+# Ruby extensions
+gem 'facets'  # Premier collection of extension methods for Ruby. [problem with overriding]
+gem 'sixarm_ruby_array_slice',  # Ruby base class extension Array #slice methods.
+gem 'sixarm_ruby_math_statistics'  # Simple math stats methods like #sum, #mean, #variance.
+gem 'sixarm_ruby_numeric_round', '= 1.0.2'  # Numeric #round, #floor, #ceil methods with precision.
+gem 'sixarm_ruby_ramp', '= 2.1.3'  # Ramp gem is a toolkit of Ruby base class extensions.
+gem 'sixarm_ruby_time_stamp', '= 1.1.2'  # Time.stamp method for ISO RFC date and time stamp.
+gem 'sixarm_ruby_time_terse'  # Time.terse method for ISO RFC date and time terse.
+gem 'sixarm_ruby_range_parse', '= 1.0.1'  # Range.parse method to convert text to a Range object.
+
+### Authentication & Authorization
+
+# Warden
+gem 'warden'  # Rack authentication framework
+gem 'warden-github'  # Warden strategy for OAuth integration with GitHub.
+gem 'warden-openid'  # Warden strategy for OpenID.
+gem 'warden-hmac-authentication'  # Warden strategy for HMAC for APIs.
+
 # Authentication with Devise + OAuth + OmniAuth
 gem 'devise'  # Flexible authentication solution for Rails with Warden.
 gem 'devise_invitable'  # An authenticated user can invite another user.
@@ -117,13 +47,9 @@ gem 'devise_security_extension'  # Security to expire passwords, validate streng
 #gem 'oa-oauth', :require => 'omniauth/oauth'  # OAuth strategies for OmniAuth. [requires old multi_xml]
 #gem 'omniauth'  # Rack middleware to authenticate with just about anything. [missing omniauth/password]
 
-# Warden
-gem 'warden'  # Rack authentication framework
-gem 'warden-github'  # Warden strategy for OAuth integration with GitHub.
-gem 'warden-openid'  # Warden strategy for OpenID.
-gem 'warden-hmac-authentication'  # Warden strategy for HMAC for APIs.
+### Model View Controller
 
-# Models
+# Model
 gem 'activeuuid'  # Add binary (not string) UUIDs to ActiveRecord in MySQL.
 gem 'acts_as_list'  # ActiveRecord sorting and reordering based on a position field.
 gem 'auto_strip_attributes'  # Helps to remove unnecessary whitespaces from model attributes.
@@ -138,7 +64,8 @@ gem 'draper'  # Decorator pattern for domain models, to replace typical helpers.
 gem 'enumerated_attribute'  # Easy enum for your models, objects and views.
 gem 'pacecar'  # Generated scopes for ActiveRecord classes.
 gem 'paper_trail'  # Generic versioning library for ActiveRecord.
-gem 'polyamorous'  # Polymorphic belongs_to for ActiveRecord.
+gem 'polyamorous'  # Extends ActiveRecord with polymorphic belongs_to associations.
+gem 'sixarm_ruby_person_name'  # PersonName mixin methods for a users model.
 
 # Views & Controlers
 gem 'activeadmin', :require => 'sass-rails'  # Admistration framework.
@@ -180,9 +107,12 @@ gem 'mime-types'  # Internet media type, aka content-type, for files.
 gem 'rb-inotify'  # Optimized for some systems with FSSM.
 gem 'rubyzip'  # Module to read and write zip files.
 
+### Data
+
 # Databases
-#gem 'cassandra'  # Ruby connection to Cassandra distributed database. [interferes with ActiveSupport]
+gem 'cassandra'  # Ruby connection to Cassandra distributed database. [interferes with ActiveSupport]
 gem 'memcached'  # Ruby interface to the libmemcached C client.
+gem 'mongo'  # Ruby driver for MongoDB, the key-value database. Version must match gem 'bson_ext'.
 gem 'mysql2'  # Ruby client library for MySQL relational database.
 gem 'pg'  # Ruby client library for PostgreSQL relational database.
 gem 'redis'  # Ruby client library for the Redis key value storage engine.
@@ -190,6 +120,13 @@ gem 'redis-objects'  # Maps Redis types directly to Ruby objects
 gem 'mock_redis', :group => :test  # Provides similar interface as redis-rb but with data in memory.
 gem 'redis-namespace'  # Adds a Redis::Namespace class to namespace Redis keys. 
 gem 'sqlite3'  # Temporary lightweight database especially for testing.
+
+# Databases + ActiveRecord
+#gem 'activerecord-postgres-hstore'  # ActiveRecord can use Postgres hstore fast hash storage.
+#gem 'activerecord-postgres-array'  # ActiveRecord can use Postgres arrays
+
+# Databases + Seed Data
+gem 'seedbank'  # Structure seed data for database content setup.
 
 # Queues
 gem 'amqp'  # Advanced Message Queuing Protocol open standard for messaging middleware.
@@ -205,6 +142,7 @@ gem 'raspell'  # Ruby binding for the Aspell spelling checker.
 gem 'ruby-stemmer', :require => 'lingua/stemmer' # Word stems with libstemmer_c SnowBall.
 gem 'rsolr'  # Simple extensible library for working with Solr search.
 gem 'sunspot'  # Search using RSolr, Solr search platform, and Lucene search engine.
+gem 'ransack'  # Creates search forms for application models.
 gem 'thinking-sphinx'  # Ruby connector between ActiveRecord and Sphinx search engine. [*native]
 
 # Commands
@@ -234,9 +172,6 @@ gem 'bcrypt-ruby'  # Secure algorithm for hashing passwords.
 gem 'encryptor'  # Wrapper for the standard ruby OpenSSL library.
 gem 'pbkdf2'  # Password Based Key Derivation Function 2 (PBKDF2) 
 gem 'scrypt'  # Passwords more secure against hardware brute-force attacks than PBKDF2 or bcrypt.
-
-# Extensions
-#gem 'facets'  # Premier collection of extension methods for Ruby. [problem with overriding]
 
 # Grep
 gem 'coypond'  # Semantic grep search for Ruby source code.
@@ -517,6 +452,8 @@ group :development, :documentation do
   gem 'yard'  # Improved documentation generation tool for Ruby code with more features.
 end
 
+### Commands
+
 group :development, :deployment do
   gem 'bundler'  # Manages an application's dependencies, such as in a Rails Gemfile.
   gem 'chef'  # Systems integration framework for configuration management.
@@ -530,6 +467,8 @@ group :development, :deployment do
   gem 'vlad'  # Pragmatic application deployment automation.
 end
 
+### Debugging
+
 group :development, :debugging do
   gem 'linecache19' # Module for reading and caching lines, useful in a debugger.
   gem 'lll'  # Line logger for debugging that displays an expression and its value.
@@ -541,19 +480,27 @@ group :development, :debugging do
   gem 'rubygems-test'  # Commands for testing gems and reporting results.
 end
 
+### Testing
+
 group :test, :tdd do
   gem 'database_cleaner'  # Ensures a clean state for testing.
   gem 'diff_matcher'  # Performs recursive matches on values.
   gem 'parallel_tests'  # Run MiniTest + RSpec + Cucumber on multi cores and CPUs.
+  gem 'ruby-prof'  # Fast code profiler for Ruby with native C code.
   gem 'spork'  # A forking Drb spec server for faster startup of tests.
-  gem 'turn'  # Test::Unit results now display each test on its own line.
+  gem 'turn', :require => false  # Test::Unit results show each test on its own line.
   gem 'webrat' # Simulates a browser for testing inside a Ruby process.
+  gem 'valid_attribute'  # Minimalist validation BDD for ActiveModel specs.
   gem 'ZenTest'  # Speeds up XP by scanning your target and unit-test code.
 end
 
-gem :test_with_minitest_spec_family_for_rails do
+group :test, :capybara
   gem 'capybara'  # Integration test tool to simulate a user on a website.
+  gem 'capybara-webkit'  # Capybara webkit driver for true headless testing.
   gem 'capybara_minitest_spec'  # MiniTest::Spec expectations for Capybara node matchers.
+end
+
+group :test, :minitest do
   gem 'minitest'  # Ruby's core TDD, BDD, mocking, and benchmarking.
   gem 'minitest-capybara'  #  Add Capybara driver switching parameters to minitest/spec.
   gem 'minitest-reporters'  # Create customizable MiniTest output formats.
@@ -561,18 +508,19 @@ gem :test_with_minitest_spec_family_for_rails do
   gem 'minitest-metadata'  # Annotate tests with metadata key-value pairs.
   gem 'minitest-spec-rails'  # Drop in MiniTest::Spec support for Rails 3.
   gem 'minitest-reporters'  # Create customizable MiniTest output formats 
-  gem 'miniskirt'  # Factory creators to go with minitest.
-  gem 'ruby-prof'  # Fast code profiler for Ruby with native C code.
-  gem 'turn', :require => false  # Test::Unit results show each test on its own line.
-  gem 'valid_attribute'  # Minimalist validation BDD for ActiveModel specs.
+  gem 'sixarm_ruby_minitest_extensions', '= 1.0.5'  # Minitest extra methods for common use cases.
 end
 
-group :test_with_factory_girl_for_rails do
+group :text, :factory do
+  gem 'miniskirt'  # Factory creators in the spirit of minitest.
+end
+
+group :test, :factory_girl do
   gem 'factory_girl'  # Framework and DSL for test factories.
   gem 'factory_girl_rails'  # Integrates Factory Girl and Rails.
 end
 
-group :test_with_rspec do
+group :test, :rspec do
   gem 'rspec'  # Behavior Driven Development (BDD) for Ruby
   gem 'rspec-core'  # RSpec runner and example groups.
   gem 'rspec-expectations'  # RSpec matchers for should and should_not.
@@ -641,3 +589,104 @@ group :test, :quality do
   gem 'simplecov-rcov-text'  # Text output formatter for SimpleCov to create a metric_fu rcov.txt
   gem 'sourcify'  # Workarounds before ruby-core has Proc#to_source & friends.
 end
+
+### To Do
+
+gem 'wrap'  # Better :before and :after callbacks for any ruby class
+gem 'irbcp'  # IRB command "cp" to access to your system's clipboard for copy and paste.
+gem 'slug'  # A simple slug library that supports unicode.
+
+gem 'rails', '4.0.0'
+
+# Servers
+gem 'puma'
+gem 'unicorn'
+
+gem 'omniauth'
+gem 'omniauth-twitter'
+gem 'omniauth-github'
+
+# Multi-environment configuration
+# gem 'simpleconfig'
+
+# API
+# gem 'rabl'
+
+# Performance and Exception management
+# gem 'airbrake'
+gem 'newrelic_rpm'  # New Relic performance management system.
+
+
+# Security
+# gem 'secure_headers'
+
+# Miscellanea
+# gem 'google-analytics-rails'
+# gem 'haml'
+# gem 'http_accept_language'
+gem 'jquery-rails'
+gem 'nokogiri'
+# gem 'resque', require: 'resque/server' # Resque web interface
+
+# Assets
+gem 'coffee-rails', '~> 4.0.0'
+# gem 'haml_assets'
+
+# gem 'handlebars_assets'
+gem 'i18n-js'
+gem 'jquery-turbolinks'
+gem 'less-rails'
+gem 'sass-rails', '~> 4.0.0'
+gem 'therubyracer'
+gem 'turbolinks'
+gem 'twitter-bootstrap-rails', github: 'diowa/twitter-bootstrap-rails', branch: 'fontawesome-3.2.1'
+gem 'uglifier', '>= 1.3.0'
+
+group :development, :test do
+  gem 'debugger'
+  gem 'delorean'
+  gem 'factory_girl_rails'
+  gem 'faker'
+  gem 'pry'
+  gem 'pry-rails'
+end
+
+group :development do
+  gem 'bullet'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'meta_request'
+end
+
+group :test do
+  gem 'capybara'
+  gem 'coveralls', require: false
+  gem 'database_cleaner'
+  gem 'email_spec'
+  gem 'launchy'
+  gem 'rspec'
+  gem 'rspec-rails'
+  gem 'selenium-webdriver'
+  gem 'simplecov', require: false
+  gem 'webmock', require: false
+end
+
+group :staging, :production do
+  gem 'rails_12factor'
+end
+
+gem 'bson', '1.8.5'   # Ruby Binary JSON serialization. Version must match gem 'mongo'.
+gem 'bson_ext', '1.8.5'  # C extensions to accelerate Binary JSON serialization. Version must match gem 'mongo'.
+gem 'cube-ruby', require: "cube"
+
+gem 'sixarm_ruby_blob', '= 1.0.1'  # Track a blob of data such as a image file.
+gem 'sixarm_ruby_hash_more'  # Hash of hashes with easy calculations.
+gem 'sixarm_ruby_to_id', '= 1.0.8'  # Typecast and santize an object to and id or uuid.
+
+  gem 'codesake-dawn', '>= 1.0.0'  # Static analysis security scanner for Ruby web applications.
+  #gem 'simple_mock'  # Fast partial mocking with MiniTest::Mock and SimpleDelegator.
+  gem 'sixarm_ruby_fab', '= 1.0.2'  # Fabricate sample data suitable for testing.
+  gem 'valid_attribute'  # Minimalist validation BDD for ActiveModel specs.
+
+
+###
