@@ -1,4 +1,4 @@
-# SixArm.com » Ruby » <br> Gemfile chock full of gems and descriptions
+# SixArm.com » Ruby » <br> Gemfile of gems and descriptions
 
 * Docs: <http://sixarm.com/sixarm_ruby_gemfile/doc>
 * Repo: <http://github.com/sixarm/sixarm_ruby_gemfile>
