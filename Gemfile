@@ -511,7 +511,7 @@ group :test, :minitest do
   gem 'sixarm_ruby_minitest_extensions', '= 1.0.5'  # Minitest extra methods for common use cases.
 end
 
-group :text, :factory do
+group :test, :factory do
   gem 'miniskirt'  # Factory creators in the spirit of minitest.
 end
 
