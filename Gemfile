@@ -511,6 +511,11 @@ group :test, :minitest do
   gem 'sixarm_ruby_minitest_extensions', '= 1.0.5'  # Minitest extra methods for common use cases.
 end
 
+group :test, :email do
+  gem 'action_mailer_cache_delivery'  # Enhance ActionMailer with a :cache delivery method.
+  gem 'email_spec'  # RSpec/MiniTest matchers and Cucumber steps for testing email in a Ruby app.
+end
+
 group :test, :factory do
   gem 'miniskirt'  # Factory creators in the spirit of minitest.
 end
