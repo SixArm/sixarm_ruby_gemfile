@@ -579,6 +579,7 @@ group :test, :extras do
 end
 
 group :test, :quality do
+  gem 'bullet'  # Detects database N+1 queries, unused eager loading, and counter cache needs.
   gem 'churn'  # Detects code that changes often for us to review, refactor, retest.
   gem 'flay'  # Analyzes code for structural similarities to find areas for refactoring.
   gem 'flog'  # Scores an ABC complexity metric: Assignments, Branches, Calls.
