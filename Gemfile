@@ -257,9 +257,10 @@ gem 'ffi'  # Foreign Function Interface enables calling external libraries.
 gem 'RubyInline'  #  Enables us to write foreign code within our Ruby code.
 gem 'whenever'  # Cron job wrapper for writing and deploying timed jobs.
 
-# Time Parsing
+# Time
 gem 'chronic' # Natural language parser for dates and times.
 gem 'chronic_duration' # Natural language parser for durations.
+gem 'holidays'  # Ruby methods to deal with dates for holidays.
 gem 'tzinfo'  # Daylight-savings timezone library.
 
 # Video
