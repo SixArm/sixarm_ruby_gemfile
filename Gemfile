@@ -21,6 +21,7 @@ gem 'rack-test'  # Small, simple testing API for Rack apps.
 
 # Ruby extensions
 gem 'facets'  # Premier collection of extension methods for Ruby. [problem with overriding]
+gem 'map'  # A hash with ordering, multiple access, structs and options.
 gem 'sixarm_ruby_array_slice',  # Ruby base class extension Array #slice methods.
 gem 'sixarm_ruby_math_statistics'  # Simple math stats methods like #sum, #mean, #variance.
 gem 'sixarm_ruby_numeric_round', '= 1.0.2'  # Numeric #round, #floor, #ceil methods with precision.
