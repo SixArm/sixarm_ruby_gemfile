@@ -1,20 +1,24 @@
 ##
 #
-# Gemfile for our typical SixArm Rails projects
+# Gemfile for our typical projects.
 #
 # Preconditions on Debian:
 #
 #   curb:
+#
 #     apt-get install libcurl4-openssl-dev
 #
 # Preconditions on all systems:
 #
 #   CoffeeScript:
+#
 #     npm install -g coffee-script
+#
 ##
 
 source 'http://rubygems.org'
 source 'http://gems.github.com'
+ruby '2.1.2'
 
 ##
 #
@@ -73,8 +77,12 @@ gem 'devise_ldap_authenticatable'  # Lightweight Directory Access Protocol authe
 gem 'devise_openid_authenticatable'  # OpenID authentication module for Devise using Rack::OpenID
 gem 'devise_security_extension'  # Security to expire passwords, validate strength, show captchas, etc.
 #gem 'devise_oauth2_providable'  # Adds OAuth2 Provider support to our application. [requires old rack-oauth2]
+
+## Omniauth
+gem 'omniauth'  # Rack middleware to authenticate with just about anything. [missing omniauth/password]
+gem 'omniauth-twitter'
+gem 'omniauth-github'
 #gem 'oa-oauth', :require => 'omniauth/oauth'  # OAuth strategies for OmniAuth. [requires old multi_xml]
-#gem 'omniauth'  # Rack middleware to authenticate with just about anything. [missing omniauth/password]
 
 ##
 #
@@ -115,7 +123,6 @@ gem 'carrierwave'  #  Easy uploads for Ruby apps locally, and remotely with Fog.
 gem 'configatron'  #  Simple and feature rich configuration system for Ruby apps.
 gem 'dynamic_form'  # Helpers to deal with model-backed forms in Rails3.
 gem 'has_scope'  # Maps controller filters to your resource scopes.
-gem 'inherited_resources'  # Controllers can inherit restful actions.
 gem 'kaminari'  # Paginator for Rails 3 that is scope & engine based.
 gem 'meta_search' # Create simple search forms to be created for ActiveRecord models.
 gem 'responders'  # Rails 3 responders to dry up your application.
@@ -252,9 +259,9 @@ gem 'json_pure'  # JSON implementation in pure Ruby.
 gem 'multi_json'  # Swappable JSON backends utilizing Yajl::Ruby, the JSON gem, JSON pure, etc.
 gem 'yajl-ruby'  # JSON implemenations as Ruby C bindings to the Yajl JSON stream library.
 
-## Assets
-gem 'sprockets'  # Preprocesses and concatenates JavaScript source files.
-gem 'uglifier'  # Ruby wrapper for UglifyJS JavaScript compressor.
+## BSON: Binary JSON
+gem 'bson', MONGO_VERSION  # Ruby Binary JSON serialization.
+gem 'bson_ext', MONGO_VERSION  # C extensions to accelerate Binary JSON serialization.
 
 ############################################################################
 
@@ -444,11 +451,25 @@ end
 
 group :development do
   gem 'annotate'  # Annotates Rails code based on the database schema.
+  gem 'better_errors', '>= 2.0.0'  # Better error page for Rack apps, with source, REPL, inspection, etc.
+  gem 'binding_of_caller', '>= 0.7.2', :platforms=>[:mri_21]  # Retrieve the binding of a method's caller.
   gem 'growl'  # Cross-platform notification sender.
   gem 'haml-rails'  # Provides Haml generators for Rails 3 and templating engine.
   gem 'launchy'  # Start cross-platform applications like a browser or email.
   gem 'libnotify'  # Ruby bindings for libnotify using FFI.
+  gem 'rails_layout', '>= 1.0.23'  # Generate Rails application layout files for use with various front-end frameworks.
+end
+
+gem :development, :servers do
   gem 'thin'  # Ruby web server that is secure, stable, fast and extensible.
+  gem 'puma'
+  gem 'unicorn'
+end
+
+group :development, :filesystem	do
+  gem 'rb-fchange', require: false  # Ruby wrapper for Windows filesystem monitoring.
+  gem 'rb-fsevent', require: false  # Ruby wrapper for OSX filesystem monitoring by using FSEvents.
+  gem 'rb-inotify', require: false  # Ruby wrapper for Linux filesystem monitoring by using inotify.
 end
 
 group :development, :test, :tools do
@@ -554,15 +575,21 @@ group :development, :vlad do
   gem 'vlad-extras'  # Vlad plugin for assets, symlinks, nginx, node, monit and more.
 end
 
-group :development, :debugging do
+group :development, :debug do
   gem 'linecache19' # Module for reading and caching lines, useful in a debugger.
   gem 'lll'  # Line logger for debugging that displays an expression and its value.
   gem 'rbtrace'  # Shows method calls happening inside ruby processes.
   gem 'ruby_core_source'  # Retrieve Ruby core source files.
-  #gem 'ruby-debug19'  # Command line interface for ruby-debug. [for Ruby 1.8.7]
-  gem 'debugger'  # Fast implementation of the standard Ruby debugger debug.rb. [for Ruby 1.9.2]
   gem 'ruby-prof'  # fast code profiler for Ruby with native C code.
   gem 'rubygems-test'  # Commands for testing gems and reporting results.
+  case RUBY_VERSION.to_f
+  when 1.8...1.9
+    gem 'ruby-debug19'  # Debug Ruby 1.8 by using a command line interface for ruby-debug.
+  when 1.9...2.0
+    gem 'debugger'  # Debug Ruby 1.9 by using a fast implementation of the standard Ruby debug.rb.
+  when 2.0...3.0
+    gem 'byebug'  # Debug Ruby 2.0 by using the TracePoint API.
+  end	
 end
 
 ##
@@ -605,11 +632,11 @@ group :test, :email do
   gem 'email_spec'  # RSpec/MiniTest matchers and Cucumber steps for testing email in a Ruby app.
 end
 
-group :test, :factory do
-  gem 'miniskirt'  # Factory creators in the spirit of minitest.
+group :development, :test, :factories, :minifacture do
+  'gem 'minifacture'  # Factory creators in the spirit of minitest.
 end
 
-group :test, :factory_girl do
+group :development, :test, :factories, :factory_girl do
   gem 'factory_girl'  # Framework and DSL for test factories.
   gem 'factory_girl_rails'  # Integrates Factory Girl and Rails.
 end
@@ -695,14 +722,6 @@ gem 'wrap'  # Better :before and :after callbacks for any ruby class
 gem 'irbcp'  # IRB command "cp" to access to your system's clipboard for copy and paste.
 gem 'slug'  # A simple slug library that supports unicode.
 
-# Servers
-gem 'puma'
-gem 'unicorn'
-
-gem 'omniauth'
-gem 'omniauth-twitter'
-gem 'omniauth-github'
-
 # Multi-environment configuration
 # gem 'simpleconfig'
 
@@ -727,6 +746,7 @@ gem 'nokogiri'
 
 # Assets
 gem 'coffee-rails', '~> 4.0.0'
+gem 'quiet_assets', '>= 1.0.3'  # Turn off Rails asset pipeline log.
 # gem 'haml_assets'
 
 # gem 'handlebars_assets'
@@ -743,15 +763,12 @@ group :development, :test do
   gem 'debugger'
   gem 'delorean'
   gem 'factory_girl_rails'
-  gem 'faker'
-  gem 'pry'
-  gem 'pry-rails'
+  gem 'faker'  # Generate fake data: names, addresses, phone numbers, etc.
+  gem 'launchy'  # Launch cross-platform applications such as a web browser, email client, etc.
 end
 
 group :development do
   gem 'bullet'
-  gem 'better_errors'
-  gem 'binding_of_caller'
   gem 'meta_request'
 end
 
@@ -772,9 +789,6 @@ group :staging, :production do
   gem 'rails_12factor'
 end
 
-gem 'bson', MONGO_VERSION  # Ruby Binary JSON serialization.
-gem 'bson_ext', MONGO_VERSION  # C extensions to accelerate Binary JSON serialization.
-
 gem 'sixarm_ruby_blob', '= 1.0.1'  # Track a blob of data such as a image file.
 gem 'sixarm_ruby_hash_more'  # Hash of hashes with easy calculations.
 gem 'sixarm_ruby_to_id', '= 1.0.8'  # Typecast and santize an object to and id or uuid.
@@ -784,3 +798,6 @@ gem 'sixarm_ruby_to_id', '= 1.0.8'  # Typecast and santize an object to and id o
   gem 'sixarm_ruby_fab', '= 1.0.2'  # Fabricate sample data suitable for testing.
   gem 'valid_attribute'  # Minimalist validation BDD for ActiveModel specs.
 
+## Assets
+gem 'sprockets'  # Preprocesses and concatenates JavaScript source files.
+gem 'uglifier'  # Ruby wrapper for UglifyJS JavaScript compressor.

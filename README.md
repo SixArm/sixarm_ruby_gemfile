@@ -19,6 +19,9 @@ Want to help? We're happy to get pull requests.
 ## Changes
 
 * 2012-03-14 1.1.4 Update docs
+* 2014-10-31 2.0.0 Upgrade for Ruby 2 & Rails 4
+
+
 ## License
 
 You may choose any of these open source licenses:
