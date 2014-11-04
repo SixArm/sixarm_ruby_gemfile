@@ -1,25 +1,49 @@
+##
+#
+# Gemfile for our typical SixArm Rails projects
+#
+# Preconditions on Debian:
+#
+#   curb:
+#     apt-get install libcurl4-openssl-dev
+#
+# Preconditions on all systems:
+#
+#   CoffeeScript:
+#     npm install -g coffee-script
+##
+
 source 'http://rubygems.org'
+source 'http://gems.github.com'
 
-### Platform
+##
+#
+# Platform
+#
+##
 
-# Environment
+## Environment
 gem 'dotenv'  # Loads environment variables from `.env` file.
 gem 'require_all'  # Simple way to load Ruby code from directories.
+gem 'memoist'  # Memoize methods invocation for efficiency.
   
-# Rails
+## Rails
 gem 'rails', # Ruby On Rails, our main rapid development framework.
 gem 'jquery-rails'  # Connects jQuery JavaScript library to Rails.
 gem 'jquery-tmpl-rails'  # jQuery Templates for the Rails asset pipeline.
+gem 'turbolinks'  # Fast link following using AJAX and Rails Asset Pipeline.
 
-# Rack
+## Rack
 gem 'rack'  # Middleware for web applications in Ruby.
+gem 'rack-accept'  # HTTP Accept and Accept Charset, Encoding, and Language.
 gem 'rack-cache'  # Rack HTTP caching
 gem 'rack-mount'  # Rack middleware router that is stackable, dynamic, and tree-based.
 gem 'rack-openid'  # Provides a more HTTPish API around the ruby-openid library.
+gem 'rack-protection', '>= 1.5.2'  # Protects against typical web attacks like CSRF and XSS.
 gem 'rack-ssl'  # Rack middleware to force SSL/TLS.
 gem 'rack-test'  # Small, simple testing API for Rack apps.
 
-# Ruby extensions
+## Ruby extensions
 gem 'facets'  # Premier collection of extension methods for Ruby. [problem with overriding]
 gem 'map'  # A hash with ordering, multiple access, structs and options.
 gem 'sixarm_ruby_array_slice',  # Ruby base class extension Array #slice methods.
@@ -30,15 +54,19 @@ gem 'sixarm_ruby_time_stamp', '= 1.1.2'  # Time.stamp method for ISO RFC date an
 gem 'sixarm_ruby_time_terse'  # Time.terse method for ISO RFC date and time terse.
 gem 'sixarm_ruby_range_parse', '= 1.0.1'  # Range.parse method to convert text to a Range object.
 
-### Authentication & Authorization
+##
+#
+# Authentication & Authorization
+#
+##
 
-# Warden
+## Warden
 gem 'warden'  # Rack authentication framework
 gem 'warden-github'  # Warden strategy for OAuth integration with GitHub.
 gem 'warden-openid'  # Warden strategy for OpenID.
 gem 'warden-hmac-authentication'  # Warden strategy for HMAC for APIs.
 
-# Authentication with Devise + OAuth + OmniAuth
+## Authentication with Devise + OAuth + OmniAuth
 gem 'devise'  # Flexible authentication solution for Rails with Warden.
 gem 'devise_invitable'  # An authenticated user can invite another user.
 gem 'devise_ldap_authenticatable'  # Lightweight Directory Access Protocol authentication.
@@ -48,9 +76,13 @@ gem 'devise_security_extension'  # Security to expire passwords, validate streng
 #gem 'oa-oauth', :require => 'omniauth/oauth'  # OAuth strategies for OmniAuth. [requires old multi_xml]
 #gem 'omniauth'  # Rack middleware to authenticate with just about anything. [missing omniauth/password]
 
-### Model View Controller
+##
+#
+# Model-View-Controller
+#
+##
 
-# Model
+## Models
 gem 'activeuuid'  # Add binary (not string) UUIDs to ActiveRecord in MySQL.
 gem 'acts_as_list'  # ActiveRecord sorting and reordering based on a position field.
 gem 'auto_strip_attributes'  # Helps to remove unnecessary whitespaces from model attributes.
@@ -68,35 +100,81 @@ gem 'paper_trail'  # Generic versioning library for ActiveRecord.
 gem 'polyamorous'  # Extends ActiveRecord with polymorphic belongs_to associations.
 gem 'sixarm_ruby_person_name'  # PersonName mixin methods for a users model.
 
-# Views & Controlers
+## Views
+#gem 'event_calendar'  # Render a calendar HTML view. [problem with undefined method id]
+gem 'high_voltage'  # Easily include static pages in your Rails app.
+gem 'meta-tags', '>= 2.0.0', '< 3', :require => 'meta_tags',  # Add Search Engine Optimization (SEO) tags to Rails views.
+gem 'show_for'  # Wrap your objects with a helper to easily show them.
+gem 'simple_form'  # Forms made easy for Rails using a simple DSL and without markup.
+
+## Controlers
 gem 'activeadmin', :require => 'sass-rails'  # Admistration framework.
 gem 'arel'  # Arel is a SQL Abstract Syntax Tree (AST) manager for Ruby.
 gem 'cancan'  # Simple authorization solution for Rails decoupled from roles.
 gem 'carrierwave'  #  Easy uploads for Ruby apps locally, and remotely with Fog.
 gem 'configatron'  #  Simple and feature rich configuration system for Ruby apps.
 gem 'dynamic_form'  # Helpers to deal with model-backed forms in Rails3.
-#gem 'event_calendar'  # Render a calendar HTML view. [problem with undefined method id]
 gem 'has_scope'  # Maps controller filters to your resource scopes.
-gem 'high_voltage'  # Easily include static pages in your Rails app.
 gem 'inherited_resources'  # Controllers can inherit restful actions.
 gem 'kaminari'  # Paginator for Rails 3 that is scope & engine based.
 gem 'meta_search' # Create simple search forms to be created for ActiveRecord models.
 gem 'responders'  # Rails 3 responders to dry up your application.
 gem 'responds_to_parent'  # Controller responds to the parent document of a page.
 gem 'settingslogic'  # Simple configuration using ERB, YAML, and Singleton pattern.
-gem 'show_for'  # Wrap your objects with a helper to easily show them.
 gem 'simple-navigation'  # Creating navigation links, tabs, breadcrumbs, etc.
-gem 'simple_form'  # Forms made easy for Rails using a simple DSL and without markup.
 gem 'TextTractor'  # Web interface for clients to edit copy on their websites.
 
-# Sanitize
+## Sanitize
 gem 'sanitize' # Sanitize is a whitelist-based HTML sanitizer. 
 gem 'acts_as_sanitiled'  # Textiles and sanitizes columns to your specification.
 gem 'sanitize-url'  # Accepts a URL and returns one with JavaScript removed.
 gem 'sanitized_attributes'  # Automatic sanitization of incoming data for Ruby and Rails.
 #gem 'rack-sanitize'  # Remove malicious HTML from requests before it reaches our app. [needs older sanitize]
 
-# Files
+##
+#
+# Data
+#
+##
+
+## Databases
+gem 'cassandra'  # Ruby connection to Cassandra distributed database. [interferes with ActiveSupport]
+gem 'cube-ruby', require: 'cube'  # Time series data collection & analysis.
+gem 'memcached'  # Ruby interface to the libmemcached C client.
+gem 'mongo', MONGO_VERSION = '1.9.1'  # Ruby driver for MongoDB, the key-value database.
+gem 'mysql2'  # Ruby client library for MySQL relational database.
+gem 'pg'  # Ruby client library for PostgreSQL relational database.
+gem 'redis'  # Ruby client library for the Redis key value storage engine.
+gem 'redis-objects'  # Maps Redis types directly to Ruby objects
+gem 'mock_redis', :group => :test  # Provides similar interface as redis-rb but with data in memory.
+gem 'redis-namespace'  # Adds a Redis::Namespace class to namespace Redis keys. 
+gem 'sqlite3'  # Temporary lightweight database especially for testing.
+
+## Databases + ActiveRecord
+#gem 'activerecord-postgres-hstore'  # ActiveRecord can use Postgres hstore fast hash storage.
+#gem 'activerecord-postgres-array'  # ActiveRecord can use Postgres arrays
+
+## Seeds
+gem 'seedbank'  # Structure seed data for database content setup.
+
+## Queues
+gem 'amqp'  # Advanced Message Queuing Protocol open standard for messaging middleware.
+gem 'dalli'  # High performance memcached client for Ruby.
+gem 'delayed_job'  # Background job queue for ActiveRecord backed by Rails database.
+gem 'resque'  # Background job queue backed by Redis, especially good for scale.
+gem 'resque-scheduler'  # Lightweight job scheduling system built on top of Resque.
+#gem 'starling'  # Lightweight persistent queue via memcached protocol. [requires older eventmachine]
+
+## Search
+gem 'maxixe'  # Simple statistical segmenter for any language; implements TANGO.
+gem 'raspell'  # Ruby binding for the Aspell spelling checker.
+gem 'ruby-stemmer', :require => 'lingua/stemmer' # Word stems with libstemmer_c SnowBall.
+gem 'rsolr'  # Simple extensible library for working with Solr search.
+gem 'sunspot'  # Search using RSolr, Solr search platform, and Lucene search engine.
+gem 'ransack'  # Creates search forms for application models.
+gem 'thinking-sphinx'  # Ruby connector between ActiveRecord and Sphinx search engine. [*native]
+
+## Files
 gem 'archive-tar-minitar'  # Library and tool for POSIX tar archive files.
 gem 'file-tail'  # Library to tail files in Ruby.
 gem 'fssm'  # File System State Monitor fires events on file system changes.
@@ -108,49 +186,13 @@ gem 'mime-types'  # Internet media type, aka content-type, for files.
 gem 'rb-inotify'  # Optimized for some systems with FSSM.
 gem 'rubyzip'  # Module to read and write zip files.
 
-### Data
+############################################################################
 
-# Databases
-gem 'cassandra'  # Ruby connection to Cassandra distributed database. [interferes with ActiveSupport]
-gem 'memcached'  # Ruby interface to the libmemcached C client.
-gem 'mongo'  # Ruby driver for MongoDB, the key-value database. Version must match gem 'bson_ext'.
-gem 'mysql2'  # Ruby client library for MySQL relational database.
-gem 'pg'  # Ruby client library for PostgreSQL relational database.
-gem 'redis'  # Ruby client library for the Redis key value storage engine.
-gem 'redis-objects'  # Maps Redis types directly to Ruby objects
-gem 'mock_redis', :group => :test  # Provides similar interface as redis-rb but with data in memory.
-gem 'redis-namespace'  # Adds a Redis::Namespace class to namespace Redis keys. 
-gem 'sqlite3'  # Temporary lightweight database especially for testing.
-
-# Databases + ActiveRecord
-#gem 'activerecord-postgres-hstore'  # ActiveRecord can use Postgres hstore fast hash storage.
-#gem 'activerecord-postgres-array'  # ActiveRecord can use Postgres arrays
-
-# Databases + Seed Data
-gem 'seedbank'  # Structure seed data for database content setup.
-
-# Queues
-gem 'amqp'  # Advanced Message Queuing Protocol open standard for messaging middleware.
-gem 'dalli'  # High performance memcached client for Ruby.
-gem 'delayed_job'  # Background job queue for ActiveRecord backed by Rails database.
-gem 'resque'  # Background job queue backed by Redis, especially good for scale.
-gem 'resque-scheduler'  # Lightweight job scheduling system built on top of Resque.
-#gem 'starling'  # Lightweight persistent queue via memcached protocol. [requires older eventmachine]
-
-# Search
-gem 'maxixe'  # Simple statistical segmenter for any language; implements TANGO.
-gem 'raspell'  # Ruby binding for the Aspell spelling checker.
-gem 'ruby-stemmer', :require => 'lingua/stemmer' # Word stems with libstemmer_c SnowBall.
-gem 'rsolr'  # Simple extensible library for working with Solr search.
-gem 'sunspot'  # Search using RSolr, Solr search platform, and Lucene search engine.
-gem 'ransack'  # Creates search forms for application models.
-gem 'thinking-sphinx'  # Ruby connector between ActiveRecord and Sphinx search engine. [*native]
-
-# Commands
+## Commands
 gem 'command_line_reporter'  # Provides easy formatting for ruby command line output.
 gem 'cri'  # Builds easy-to-use commandline interfaces with support for subcommands.
 
-# Communication
+## Communication
 gem 'msgpack'  # Binary-based efficient data interchange format.
 gem 'net-ssh'  # Net::SSH: a pure-Ruby implementation of the SSH2 client protocol.
 gem 'net_dav'  # Net::DAV is a Ruby WebDAV client library in the style of Net::HTTP.
@@ -158,18 +200,19 @@ gem 'packetfu'  # Mid-level packet manipulation library for Ruby.
 #gem 'thrift_client'  # Client wrapper to encapsulate common failover behavior. [interferes with ActiveSupport]
 gem 'vpim'  # vCard and iCalendar support for exchange of contact information and calendars.
 
-# CSS
+## CSS
 gem 'bourbon'  # Comprehensive Sass mixins using SCSS syntax for all modern browsers.
 gem 'compass'  # Stylesheet framework to streamline CSS creation and maintainance.
 gem 'flutie'  # Basic default styles for rails applications.
 gem 'sass'  # Extends CSS with nested rules, variables, mixins, selectors, and more.
 
-# Document Generation
+## Document Generation
 gem 'prawn'  # PDF generator.
 gem 'rghost'  # Ruby Ghostscript Engine is a document creation and conversion API.
 
-# Encryption
-gem 'bcrypt-ruby'  # Secure algorithm for hashing passwords.
+## Encryption
+gem 'bcrypt'  # Secure algorithm for hashing passwords, native version.
+gem 'bcrypt-ruby'  # Secure algorithm for hashing passwords, pure ruby version.
 gem 'encryptor'  # Wrapper for the standard ruby OpenSSL library.
 gem 'pbkdf2'  # Password Based Key Derivation Function 2 (PBKDF2) 
 gem 'scrypt'  # Passwords more secure against hardware brute-force attacks than PBKDF2 or bcrypt.
@@ -188,20 +231,32 @@ gem 'rmagick'  # Interface between Ruby and ImageMagick graphics library.
 gem 'i18n'  # Internationalization and localization solution.
 gem 'i18n_routing'  # Translate Rails routes with ease.
 
+##
+#
 # JavaScript
+#
+##
+
+## Coffee
 gem 'coffee-script'  # Ruby bridge to the JS CoffeeScript compiler.
 gem 'coffee-script-source'  # Good looking language that compiles into JavaScript.
+
+## Runners
 gem 'execjs'  # Executes JavaScript code from within Ruby.
 gem 'libv8'  # Distributes the V8 JavaScript engine in binary and source forms.
-gem 'sprockets'  # Preprocesses and concatenates JavaScript source files.
 gem 'therubyracer'  # Embed the V8 Javascript Interpreter into Ruby.
-gem 'uglifier'  # Ruby wrapper for UglifyJS JavaScript compressor.
 
-# JSON: JavaScript Object Notation
+## JSON: JavaScript Object Notation
 gem 'json'  # JSON implementation as a Ruby extension in C.
 gem 'json_pure'  # JSON implementation in pure Ruby.
 gem 'multi_json'  # Swappable JSON backends utilizing Yajl::Ruby, the JSON gem, JSON pure, etc.
 gem 'yajl-ruby'  # JSON implemenations as Ruby C bindings to the Yajl JSON stream library.
+
+## Assets
+gem 'sprockets'  # Preprocesses and concatenates JavaScript source files.
+gem 'uglifier'  # Ruby wrapper for UglifyJS JavaScript compressor.
+
+############################################################################
 
 # Math
 gem 'extendmatrix'  # Enhancements to the Ruby "Vector" and "Matrix" modules.
@@ -326,7 +381,13 @@ gem 'rackamole'  # Observe your web applications in the wild.
 gem 'rails-footnotes'  # Add diagnostic information to the footer of each Rails page.
 gem 'rails_metrics'  # Measurements for your app on top of ActiveSupport::Notifications.
 
-# APIs
+##
+#
+# API
+#
+##
+
+## APIs
 gem 'active_merchant'  # Simple payment abstraction library by Shopify.
 gem 'aws' # Amazon Web Services including EC2, S3, SQS, SimpleDB, etc.
 gem 'bliptv' # Blip.tv API for videos and user accounts
@@ -351,7 +412,7 @@ gem 'vimeo'  # Vimeo video API.
 gem 'wepredict'  # WePredict data mining API.
 gem 'www-delicious'  # Delicious.com bookmarking service API.
 
-# APIs to ticket tracking systems
+## APIs to ticket tracking systems
 gem 'ticketmaster'  # API to ticket tracking and project management systems.
 gem 'ticketmaster-basecamp'  # API to Basecamp by 37signals at www.basecamphq.com
 gem 'ticketmaster-bugzilla'  # API to Bugzilla.
@@ -364,10 +425,22 @@ gem 'ticketmaster-redmine'  # API to Redmine.
 gem 'ticketmaster-trac'  # API to Trac.
 gem 'ticketmaster-unfuddle'  # API to Unfuddle.
 
+##
+#
+# Assets
+#
+##
+
 group :assets do
   gem 'sass-rails', "  ~> 3.1.0"  # Sass adapter for the Rails asset pipeline.
   gem 'coffee-rails', "~> 3.1.0"  # CoffeScript adapter for the Rails asset pipeline.
 end
+
+##
+#
+# Development
+#
+##
 
 group :development do
   gem 'annotate'  # Annotates Rails code based on the database schema.
@@ -381,6 +454,7 @@ end
 group :development, :test, :tools do
   gem 'axe'  # Command line utility for parsing Rails log files.
   gem 'itslog'  # Log formatter for Rails 3 with time stamps, colors, formatting, etc.
+  gem 'did_you_mean'  # Add suggestions to error messages.
 end
 
 group :development, :irb do
@@ -440,26 +514,31 @@ group :development, :guard do
   gem 'guard-compass'  # Rebuilds Compass SCSS and SASS files to stylesheets.
   gem 'guard-cucumber'  # Runs Cucumber features, much like autotest.
   gem 'guard-haml'  # Compiles HAML files to HTML.
-  gem 'guard-rails-assets' # Compiles Rails 3.1 assets.
+  gem 'guard-jasmine', '>= 1.18.0'  # Runs Jasmine specs.
+  gem 'guard-jasmine-headless-webkit', '>= 0.3.2'  # Runs Jasmine specs using headless WebKit.
+  gem 'guard-minitest', '>= 0.5.0'  # Runs MiniTest tests, much like autotest.
+  gem 'guard-rails', '>= 0.4.7'  # Restart the Rails development server automatically.
+  gem 'guard-rails-assets', '>= 0.1.3' # Compiles Rails 3.x assets.
+  gem 'guard-rails_best_practices', '>= 0.1.3'  # Code metric tool for quality of rails code.
+  gem 'guard-readme-on-github', '>= 0.0.1'  # Preview your README.md as if it was on github.
   gem 'guard-rspec'  # Runs rspec tests.
-  gem 'guard-sass'  # Compiles SASS files to CSS.
+  gem 'guard-sass', '>= 1.3.2'  # Compiles SASS files to CSS.
   gem 'guard-spork'  # Manage Spork DRb servers.
-  gem 'guard-sprockets'  # Packages our JavaScript files together.
-  gem 'guard-uglify'  # Compresses our application.js by using uglifyjs.
+  gem 'guard-sprockets', '>= 0.4.2'  # Packages our JavaScript files together.
+  gem 'guard-uglify', '>= 0.1.0'  # Compresses our application.js by using uglifyjs.
+  gem 'guard-yard', '>= 2.1.3'  #  Run and update the local YARD Documentation Server.
 end
 
 group :development, :documentation do
   gem 'bdoc'  # Local gem documentation browser.
-  gem 'rdoc'  # Default documentation generation tool for Ruby code.
-  gem 'sdoc'  # An rdoc generator for html with javascript search index.
+  gem 'rdoc'  # Default documentation generation tool for Ruby code. Rails affects the version.
+  gem 'sdoc'  # An rdoc generator for html with javascript search index. Rails affects the version.
   gem 'yard'  # Improved documentation generation tool for Ruby code with more features.
 end
 
-### Commands
-
-group :development, :deployment do
+group :development, :commands do
   gem 'bundler'  # Manages an application's dependencies, such as in a Rails Gemfile.
-  gem 'chef'  # Systems integration framework for configuration management.
+  #gem 'chef'  # Systems integration framework for configuration management.
   gem 'mixlib-cli'  # A simple mixin for CLI interfaces, including option parsing.
   gem 'mixlib-log'  # A simple mixin for log functionality.
   gem 'mixlib-authentication'  # A simple mixin for per-request authentication.
@@ -467,10 +546,13 @@ group :development, :deployment do
   gem 'rake'  # Scripting framework like Make with tasks, dependencies, and a DSL.
   #gem 'rake-remote_task'  # Extends Rake to run tasks on remote servers. [requires older rake]
   gem 'thor'  # Scripting framework that replaces rake, sake and rubigen.
-  gem 'vlad'  # Pragmatic application deployment automation.
 end
 
-### Debugging
+group :development, :vlad do
+  gem 'vlad'  # Pragmatic application deployment automation.
+  gem 'vlad-git'  # Vlad plugin for git version control.
+  gem 'vlad-extras'  # Vlad plugin for assets, symlinks, nginx, node, monit and more.
+end
 
 group :development, :debugging do
   gem 'linecache19' # Module for reading and caching lines, useful in a debugger.
@@ -483,7 +565,11 @@ group :development, :debugging do
   gem 'rubygems-test'  # Commands for testing gems and reporting results.
 end
 
-### Testing
+##
+#
+# Test
+#
+##
 
 group :test, :tdd do
   gem 'database_cleaner'  # Ensures a clean state for testing.
@@ -599,13 +685,15 @@ group :test, :quality do
   gem 'sourcify'  # Workarounds before ruby-core has Proc#to_source & friends.
 end
 
-### To Do
+##
+#
+# To Do
+#
+##
 
 gem 'wrap'  # Better :before and :after callbacks for any ruby class
 gem 'irbcp'  # IRB command "cp" to access to your system's clipboard for copy and paste.
 gem 'slug'  # A simple slug library that supports unicode.
-
-gem 'rails', '4.0.0'
 
 # Servers
 gem 'puma'
@@ -684,9 +772,8 @@ group :staging, :production do
   gem 'rails_12factor'
 end
 
-gem 'bson', '1.8.5'   # Ruby Binary JSON serialization. Version must match gem 'mongo'.
-gem 'bson_ext', '1.8.5'  # C extensions to accelerate Binary JSON serialization. Version must match gem 'mongo'.
-gem 'cube-ruby', require: "cube"
+gem 'bson', MONGO_VERSION  # Ruby Binary JSON serialization.
+gem 'bson_ext', MONGO_VERSION  # C extensions to accelerate Binary JSON serialization.
 
 gem 'sixarm_ruby_blob', '= 1.0.1'  # Track a blob of data such as a image file.
 gem 'sixarm_ruby_hash_more'  # Hash of hashes with easy calculations.
@@ -697,5 +784,3 @@ gem 'sixarm_ruby_to_id', '= 1.0.8'  # Typecast and santize an object to and id o
   gem 'sixarm_ruby_fab', '= 1.0.2'  # Fabricate sample data suitable for testing.
   gem 'valid_attribute'  # Minimalist validation BDD for ActiveModel specs.
 
-
-###
