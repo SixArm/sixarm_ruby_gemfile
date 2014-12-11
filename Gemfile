@@ -18,7 +18,7 @@
 
 source 'http://rubygems.org'
 source 'http://gems.github.com'
-ruby '2.1.2'
+ruby '2.1.5'
 
 ##
 #
@@ -30,7 +30,7 @@ ruby '2.1.2'
 gem 'dotenv'  # Loads environment variables from `.env` file.
 gem 'require_all'  # Simple way to load Ruby code from directories.
 gem 'memoist'  # Memoize methods invocation for efficiency.
-  
+
 ## Rails
 gem 'rails', # Ruby On Rails, our main rapid development framework.
 gem 'jquery-rails'  # Connects jQuery JavaScript library to Rails.
@@ -132,7 +132,7 @@ gem 'simple-navigation'  # Creating navigation links, tabs, breadcrumbs, etc.
 gem 'TextTractor'  # Web interface for clients to edit copy on their websites.
 
 ## Sanitize
-gem 'sanitize' # Sanitize is a whitelist-based HTML sanitizer. 
+gem 'sanitize' # Sanitize is a whitelist-based HTML sanitizer.
 gem 'acts_as_sanitiled'  # Textiles and sanitizes columns to your specification.
 gem 'sanitize-url'  # Accepts a URL and returns one with JavaScript removed.
 gem 'sanitized_attributes'  # Automatic sanitization of incoming data for Ruby and Rails.
@@ -154,7 +154,7 @@ gem 'pg'  # Ruby client library for PostgreSQL relational database.
 gem 'redis'  # Ruby client library for the Redis key value storage engine.
 gem 'redis-objects'  # Maps Redis types directly to Ruby objects
 gem 'mock_redis', :group => :test  # Provides similar interface as redis-rb but with data in memory.
-gem 'redis-namespace'  # Adds a Redis::Namespace class to namespace Redis keys. 
+gem 'redis-namespace'  # Adds a Redis::Namespace class to namespace Redis keys.
 gem 'sqlite3'  # Temporary lightweight database especially for testing.
 
 ## Databases + ActiveRecord
@@ -221,7 +221,7 @@ gem 'rghost'  # Ruby Ghostscript Engine is a document creation and conversion AP
 gem 'bcrypt'  # Secure algorithm for hashing passwords, native version.
 gem 'bcrypt-ruby'  # Secure algorithm for hashing passwords, pure ruby version.
 gem 'encryptor'  # Wrapper for the standard ruby OpenSSL library.
-gem 'pbkdf2'  # Password Based Key Derivation Function 2 (PBKDF2) 
+gem 'pbkdf2'  # Password Based Key Derivation Function 2 (PBKDF2)
 gem 'scrypt'  # Passwords more secure against hardware brute-force attacks than PBKDF2 or bcrypt.
 
 # Grep
@@ -276,11 +276,11 @@ gem 'statistics'  # An ActiveRecord gem that makes it easier to do reporting.
 # Markup + Parsing
 gem 'builder'  # Facilitates structured data like XML markup and events.
 gem 'haml'  # HTML Abstraction Markup Language for writing elegant documents.
-gem 'happymapper'  # XML to object mapping library. 
+gem 'happymapper'  # XML to object mapping library.
 gem 'hippo'  # Simple DSL to generate and parse HIPAA transaction sets.
 gem 'htmlentities'  # Encode/decode HTML & XML named and numerical entities.
-gem 'libxml-ruby'  # Ruby language bindings for the GNOME Libxml2 toolkit. 
-gem 'libxslt-ruby'  #  Ruby language bindings for the GNOME Libxslt toolkit. 
+gem 'libxml-ruby'  # Ruby language bindings for the GNOME Libxml2 toolkit.
+gem 'libxslt-ruby'  #  Ruby language bindings for the GNOME Libxslt toolkit.
 gem 'nokogiri'  # Parser for HTML, XML, SAX, and Reader with XPath and CSS selectors.
 gem 'ParseTree'  # Extracts the parse tree for Ruby code and returns a sexp.
 gem 'prism'  # Microformat parser and HTML toolkit powered by Nokogiri.
@@ -305,7 +305,7 @@ gem 'state_machine'  # Creating state machines for attributes on any Ruby class.
 
 # Money
 gem 'cashrb'  # Work with Money/Currency without the hassle of Floats; phases out 'money'.
-gem 'eu_central_bank'  # Calculate exchange rates from European Central Bank. 
+gem 'eu_central_bank'  # Calculate exchange rates from European Central Bank.
 gem 'google_currency'  # Ruby Money::Bank interface for the Google Currency exchange data.
 gem 'money'  # Library for dealing with money and currency conversion; phased out by 'cashrb'.
 
@@ -370,7 +370,7 @@ gem 'graticule'  # Geocoding API for address coordinates, distance calculations,
 gem 'ipgeolocation'  # Remote, IP-Based Geolocation with 3 services as 1-liners.
 
 # Mail
-gem 'larch'  # Copies messages from one IMAP server to another. 
+gem 'larch'  # Copies messages from one IMAP server to another.
 gem 'mail'  # Ruby mail handler for email generation, parsing, and sending.
 gem 'mail_form'  # Send e-mail from Rails forms with I18n, naming, validations, attachments. and request info.
 gem 'maildir' # Read and write arbitrary messages in DJB's maildir format.
@@ -409,7 +409,7 @@ gem 'gravatar_image_tag'  # Rails view helper to show a user thumbnail from Grav
 gem 'imdb'  # Internet Movie Database API.
 gem 'linkedin'  # LinkedIn API for social networking.
 gem 'mixpanel'  # Track events in Mixpanel service via Rack.
-gem 'pivotal-tracker'  # Provides ActiveRecord-style interface for the Pivotal Tracker API. 
+gem 'pivotal-tracker'  # Provides ActiveRecord-style interface for the Pivotal Tracker API.
 gem 'rapns'  # Apple Push Notification Service with Rails 3.
 gem 'tumblr' # Tumblr blog posting API.
 gem 'twitter'  # Twitter REST and Search APIs.
@@ -589,7 +589,7 @@ group :development, :debug do
     gem 'debugger'  # Debug Ruby 1.9 by using a fast implementation of the standard Ruby debug.rb.
   when 2.0...3.0
     gem 'byebug'  # Debug Ruby 2.0 by using the TracePoint API.
-  end	
+  end
 end
 
 ##
@@ -623,7 +623,7 @@ group :test, :minitest do
   gem 'minitest-matchers'  # RSpec/Shoulda-style matchers for minitest.
   gem 'minitest-metadata'  # Annotate tests with metadata key-value pairs.
   gem 'minitest-spec-rails'  # Drop in MiniTest::Spec support for Rails 3.
-  gem 'minitest-reporters'  # Create customizable MiniTest output formats 
+  gem 'minitest-reporters'  # Create customizable MiniTest output formats
   gem 'sixarm_ruby_minitest_extensions', '= 1.0.5'  # Minitest extra methods for common use cases.
 end
 
