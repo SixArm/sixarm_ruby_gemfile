@@ -676,6 +676,10 @@ group :test, :selenium do
   gem 'selenium-webdriver'  # WebDriver tool for writing automated tests of websites.
 end
 
+group :test, :tee do
+  gem 'gor'  # Tee HTTP traffic from production to other environments.
+end
+
 group :test, :doubles do
   # Local
   gem 'bourne', :require => false  # Extends mocha with spies to track and query our mocks and stubs.
