@@ -614,6 +614,7 @@ group :test, :capybara
   gem 'capybara'  # Integration test tool to simulate a user on a website.
   gem 'capybara-webkit'  # Capybara webkit driver for true headless testing.
   gem 'capybara_minitest_spec'  # MiniTest::Spec expectations for Capybara node matchers.
+  gem 'capybara-slow_finder_errors'  # Detect Capybara tests that time out. 
 end
 
 group :test, :minitest do
