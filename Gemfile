@@ -711,6 +711,7 @@ end
 group :test, :quality do
   gem 'bullet'  # Detects database N+1 queries, unused eager loading, and counter cache needs.
   gem 'churn'  # Detects code that changes often for us to review, refactor, retest.
+  gem 'debt_ceiling'  # Scores a technical debt metric and manages debt reduction.
   gem 'flay'  # Analyzes code for structural similarities to find areas for refactoring.
   gem 'flog'  # Scores an ABC complexity metric: Assignments, Branches, Calls.
   gem 'heckle'  # Perturbs our tests to ensure they are working correctly.
