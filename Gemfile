@@ -50,13 +50,22 @@ gem 'rack-test'  # Small, simple testing API for Rack apps.
 ## Ruby extensions
 gem 'facets'  # Premier collection of extension methods for Ruby. [problem with overriding]
 gem 'map'  # A hash with ordering, multiple access, structs and options.
-gem 'sixarm_ruby_array_slice',  # Ruby base class extension Array #slice methods.
-gem 'sixarm_ruby_math_statistics'  # Simple math stats methods like #sum, #mean, #variance.
-gem 'sixarm_ruby_numeric_round', '= 1.0.2'  # Numeric #round, #floor, #ceil methods with precision.
-gem 'sixarm_ruby_ramp', '= 2.1.3'  # Ramp gem is a toolkit of Ruby base class extensions.
+gem 'sixarm_ruby_array_slice', '>= 2.1.2' # Ruby base class extension Array #slice methods.
+gem 'sixarm_ruby_blob', '>= 1.0.1'  # Blob of data abstract base class.
+gem 'sixarm_ruby_fab', '>= 1.0.2'  # Fabricate sample data suitable for testing.
+gem 'sixarm_ruby_hash_more', '>= 1.3.0'  # HashMore class for dynamic hashes.
+gem 'sixarm_ruby_math_statistics' '>= 1.2.0' # Simple math stats methods like #sum, #mean, #variance.
+gem 'sixarm_ruby_numeric_round', '>= 1.0.2'  # Numeric #round, #floor, #ceil methods with precision.
+gem 'sixarm_ruby_person_name', '>= 1.1.0'  # PersonName mixin methods for a person model.
+gem 'sixarm_ruby_pro_logger', '>= 2.0.1'  # Custom logger with better information.
+gem 'sixarm_ruby_ramp', '>= 4.1.0'  # Ramp gem is a toolkit of Ruby base class extensions.
+gem 'sixarm_ruby_range_parse', '>= 1.0.1'  # Range.parse method to convert text to a Range object.
+gem 'sixarm_ruby_rexml', '>= 2.1.0'  # REXML core for XML documents, elements, attributes.
 gem 'sixarm_ruby_time_stamp', '= 1.1.2'  # Time.stamp method for ISO RFC date and time stamp.
-gem 'sixarm_ruby_time_terse'  # Time.terse method for ISO RFC date and time terse.
-gem 'sixarm_ruby_range_parse', '= 1.0.1'  # Range.parse method to convert text to a Range object.
+gem 'sixarm_ruby_time_terse', '>= 1.1.0'  # Time.terse method for ISO RFC date and time terse.
+gem 'sixarm_ruby_to_id', '>= 1.0.8'  # Convert strings to various kinds of id types and uuid types.
+gem 'sixarm_ruby_xml_load', '>= 2.1.0'  # XML#load methods to load documents, elements, attributes.
+gem 'sixarm_ruby_xml_strip', '>= 2.1.0'  # XML#strip methods to clean XML & HTML.
 
 ##
 #
@@ -615,6 +624,7 @@ group :test, :capybara
   gem 'capybara'  # Integration test tool to simulate a user on a website.
   gem 'capybara-webkit'  # Capybara webkit driver for true headless testing.
   gem 'capybara_minitest_spec'  # MiniTest::Spec expectations for Capybara node matchers.
+  gem 'capybara-slow_finder_errors'  # Detect Capybara tests that time out.
 end
 
 group :test, :minitest do
@@ -625,7 +635,7 @@ group :test, :minitest do
   gem 'minitest-metadata'  # Annotate tests with metadata key-value pairs.
   gem 'minitest-spec-rails'  # Drop in MiniTest::Spec support for Rails 3.
   gem 'minitest-reporters'  # Create customizable MiniTest output formats
-  gem 'sixarm_ruby_minitest_extensions', '= 1.0.5'  # Minitest extra methods for common use cases.
+  gem 'sixarm_ruby_minitest_extensions', '>= 1.0.5'  # Minitest extra methods for common use cases.
 end
 
 group :test, :email do
@@ -703,6 +713,7 @@ group :test, :quality do
   gem 'bullet'  # Detects database N+1 queries, unused eager loading, and counter cache needs.
   gem 'churn'  # Detects code that changes often for us to review, refactor, retest.
   gem 'coveralls', require: false  # Web service to track code coverage over time.
+  gem 'debt_ceiling'  # Scores a technical debt metric and manages debt reduction.
   gem 'flay'  # Analyzes code for structural similarities to find areas for refactoring.
   gem 'flog'  # Scores an ABC complexity metric: Assignments, Branches, Calls.
   gem 'heckle'  # Perturbs our tests to ensure they are working correctly.
@@ -715,9 +726,9 @@ group :test, :quality do
   gem 'rubocop'  # Ruby static code analyzer, based on the community Ruby style guide.
   gem 'rubycritic'  # Reporter that wraps gems such as Reek, Flay and Flog.
   gem 'sandi_meter'  # Static analysis tool for checking Ruby code for Sandi Metz' rules.
-  gem 'simplecov'  # Code coverage analyzer for Ruby 1.9+
-  gem 'simplecov-html'  # HTML output formatter for SimpleCov.
-  gem 'simplecov-rcov-text'  # Text output formatter for SimpleCov to create a metric_fu rcov.txt
+  gem 'simplecov', require: false  # Code coverage analyzer for Ruby 1.9+
+  gem 'simplecov-html', require: false  # HTML output formatter for SimpleCov.
+  #gem 'simplecov-rcov-text', require: false  # Text output formatter for SimpleCov. [Outdated]
   gem 'sourcify'  # Workarounds before ruby-core has Proc#to_source & friends.
 end
 
