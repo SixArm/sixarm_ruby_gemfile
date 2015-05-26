@@ -119,12 +119,13 @@ gem 'simple_form'  # Forms made easy for Rails using a simple DSL and without ma
 gem 'activeadmin', :require => 'sass-rails'  # Admistration framework.
 gem 'arel'  # Arel is a SQL Abstract Syntax Tree (AST) manager for Ruby.
 gem 'cancan'  # Simple authorization solution for Rails decoupled from roles.
-gem 'carrierwave'  #  Easy uploads for Ruby apps locally, and remotely with Fog.
+#gem 'carrierwave'  #  Easy uploads for Ruby apps locally, and remotely with Fog. [superceded by refile]
 gem 'configatron'  #  Simple and feature rich configuration system for Ruby apps.
 gem 'dynamic_form'  # Helpers to deal with model-backed forms in Rails3.
 gem 'has_scope'  # Maps controller filters to your resource scopes.
 gem 'kaminari'  # Paginator for Rails 3 that is scope & engine based.
 gem 'meta_search' # Create simple search forms to be created for ActiveRecord models.
+gem 'refile'  # Ruby file uploads; replaces carrierwave.
 gem 'responders'  # Rails 3 responders to dry up your application.
 gem 'responds_to_parent'  # Controller responds to the parent document of a page.
 gem 'settingslogic'  # Simple configuration using ERB, YAML, and Singleton pattern.
@@ -701,6 +702,7 @@ end
 group :test, :quality do
   gem 'bullet'  # Detects database N+1 queries, unused eager loading, and counter cache needs.
   gem 'churn'  # Detects code that changes often for us to review, refactor, retest.
+  gem 'coveralls', require: false  # Web service to track code coverage over time.
   gem 'flay'  # Analyzes code for structural similarities to find areas for refactoring.
   gem 'flog'  # Scores an ABC complexity metric: Assignments, Branches, Calls.
   gem 'heckle'  # Perturbs our tests to ensure they are working correctly.
@@ -710,11 +712,15 @@ group :test, :quality do
   gem 'reek'  # Detects code smells like coupling, clumping, large areas, short names.
   gem 'roodi'  # Ruby Object Oriented Design Inferometer: parses code to warn on design issues.
   gem 'rails_best_practices'  # parse codes in vendor, spec, test and features directories.
+  gem 'rubocop'  # Ruby static code analyzer, based on the community Ruby style guide.
+  gem 'rubycritic'  # Reporter that wraps gems such as Reek, Flay and Flog.
+  gem 'sandi_meter'  # Static analysis tool for checking Ruby code for Sandi Metz' rules.
   gem 'simplecov'  # Code coverage analyzer for Ruby 1.9+
   gem 'simplecov-html'  # HTML output formatter for SimpleCov.
   gem 'simplecov-rcov-text'  # Text output formatter for SimpleCov to create a metric_fu rcov.txt
   gem 'sourcify'  # Workarounds before ruby-core has Proc#to_source & friends.
 end
+
 
 ##
 #
