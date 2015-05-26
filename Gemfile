@@ -18,7 +18,7 @@
 
 source 'http://rubygems.org'
 source 'http://gems.github.com'
-ruby '2.1.5'
+ruby '2.2.2'
 
 ##
 #
