@@ -270,7 +270,7 @@ gem 'multi_json'  # Swappable JSON backends utilizing Yajl::Ruby, the JSON gem, 
 gem 'yajl-ruby'  # JSON implemenations as Ruby C bindings to the Yajl JSON stream library.
 
 ## BSON: Binary JSON
-gem 'bson', MONGO_VERSION  # Ruby Binary JSON serialization.
+gem 'bson', MONGO_VERSION  # Ruby Binary JSON serializtion.
 gem 'bson_ext', MONGO_VERSION  # C extensions to accelerate Binary JSON serialization.
 
 ############################################################################
@@ -710,6 +710,7 @@ group :test, :extras do
 end
 
 group :test, :quality do
+  gem 'brakeman'  # Detects security vulnerabilities in Rails apps via static analysis.
   gem 'bullet'  # Detects database N+1 queries, unused eager loading, and counter cache needs.
   gem 'churn'  # Detects code that changes often for us to review, refactor, retest.
   gem 'coveralls', require: false  # Web service to track code coverage over time.
