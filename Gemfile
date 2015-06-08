@@ -722,7 +722,7 @@ group :test, :quality do
   gem 'metric_fu'  #  Meta-analytics that runs churn, reek, roodi, etc. and graphs results.
   gem 'reek'  # Detects code smells like coupling, clumping, large areas, short names.
   gem 'roodi'  # Ruby Object Oriented Design Inferometer: parses code to warn on design issues.
-  gem 'rails_best_practices'  # parse codes in vendor, spec, test and features directories.
+  #gem 'rails_best_practices'  # parse codes in vendor, spec, test and features directories. [Retired; less-maintained]
   gem 'rubocop'  # Ruby static code analyzer, based on the community Ruby style guide.
   gem 'rubycritic'  # Reporter that wraps gems such as Reek, Flay and Flog.
   gem 'sandi_meter'  # Static analysis tool for checking Ruby code for Sandi Metz' rules.
