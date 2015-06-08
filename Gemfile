@@ -712,6 +712,7 @@ end
 group :test, :quality do
   gem 'brakeman'  # Detects security vulnerabilities in Rails apps via static analysis.
   gem 'bullet'  # Detects database N+1 queries, unused eager loading, and counter cache needs.
+  gem 'cane'  # Code quality threshold checking as part of your build.
   gem 'churn'  # Detects code that changes often for us to review, refactor, retest.
   gem 'coveralls', require: false  # Web service to track code coverage over time.
   gem 'debt_ceiling'  # Scores a technical debt metric and manages debt reduction.
