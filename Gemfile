@@ -629,6 +629,7 @@ end
 
 group :test, :minitest do
   gem 'minitest'  # Ruby's core TDD, BDD, mocking, and benchmarking.
+  gem 'minitest-bang'  # Provides minitest spec #let! method.
   gem 'minitest-capybara'  #  Add Capybara driver switching parameters to minitest/spec.
   gem 'minitest-reporters'  # Create customizable MiniTest output formats.
   gem 'minitest-matchers'  # RSpec/Shoulda-style matchers for minitest.
