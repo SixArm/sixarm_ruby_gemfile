@@ -30,6 +30,7 @@ ruby '2.2.2'
 gem 'dotenv'  # Loads environment variables from `.env` file.
 gem 'require_all'  # Simple way to load Ruby code from directories.
 gem 'memoist'  # Memoize methods invocation for efficiency.
+gem 'sixarm_ruby_pro_logger'  # Custom logger with better information.
 
 ## Rails
 gem 'rails', # Ruby On Rails, our main rapid development framework.
@@ -50,22 +51,20 @@ gem 'rack-test'  # Small, simple testing API for Rack apps.
 ## Ruby extensions
 gem 'facets'  # Premier collection of extension methods for Ruby. [problem with overriding]
 gem 'map'  # A hash with ordering, multiple access, structs and options.
-gem 'sixarm_ruby_array_slice', '>= 2.1.2' # Ruby base class extension Array #slice methods.
-gem 'sixarm_ruby_blob', '>= 1.0.1'  # Blob of data abstract base class.
-gem 'sixarm_ruby_fab', '>= 1.0.2'  # Fabricate sample data suitable for testing.
-gem 'sixarm_ruby_hash_more', '>= 1.3.0'  # HashMore class for dynamic hashes.
-gem 'sixarm_ruby_math_statistics' '>= 1.2.0' # Simple math stats methods like #sum, #mean, #variance.
-gem 'sixarm_ruby_numeric_round', '>= 1.0.2'  # Numeric #round, #floor, #ceil methods with precision.
-gem 'sixarm_ruby_person_name', '>= 1.1.0'  # PersonName mixin methods for a person model.
-gem 'sixarm_ruby_pro_logger', '>= 2.0.1'  # Custom logger with better information.
-gem 'sixarm_ruby_ramp', '>= 4.1.0'  # Ramp gem is a toolkit of Ruby base class extensions.
-gem 'sixarm_ruby_range_parse', '>= 1.0.1'  # Range.parse method to convert text to a Range object.
-gem 'sixarm_ruby_rexml', '>= 2.1.0'  # REXML core for XML documents, elements, attributes.
-gem 'sixarm_ruby_time_stamp', '= 1.1.2'  # Time.stamp method for ISO RFC date and time stamp.
-gem 'sixarm_ruby_time_terse', '>= 1.1.0'  # Time.terse method for ISO RFC date and time terse.
-gem 'sixarm_ruby_to_id', '>= 1.0.8'  # Convert strings to various kinds of id types and uuid types.
-gem 'sixarm_ruby_xml_load', '>= 2.1.0'  # XML#load methods to load documents, elements, attributes.
-gem 'sixarm_ruby_xml_strip', '>= 2.1.0'  # XML#strip methods to clean XML & HTML.
+gem 'sixarm_ruby_array_slice'  # Ruby base class extension Array #slice methods.
+gem 'sixarm_ruby_blob'  # Blob of data abstract base class.
+gem 'sixarm_ruby_fab'  # Fabricate sample data suitable for testing.
+gem 'sixarm_ruby_hash_more'  # HashMore class for dynamic hashes.
+gem 'sixarm_ruby_math_statistics'  # Simple math stats methods like #sum, #mean, #variance.
+gem 'sixarm_ruby_numeric_round'  # Numeric #round, #floor, #ceil methods with precision.
+gem 'sixarm_ruby_ramp'  # Ramp gem is a toolkit of Ruby base class extensions.
+gem 'sixarm_ruby_range_parse'  # Range.parse method to convert text to a Range object.
+gem 'sixarm_ruby_rexml'  # REXML core for XML documents, elements, attributes.
+gem 'sixarm_ruby_time_stamp'  # Time.stamp method for ISO RFC date and time stamp.
+gem 'sixarm_ruby_time_terse'  # Time.terse method for ISO RFC date and time terse.
+gem 'sixarm_ruby_to_id'  # Convert strings to various kinds of id types and uuid types.
+gem 'sixarm_ruby_xml_load'  # XML#load methods to load documents, elements, attributes.
+gem 'sixarm_ruby_xml_strip'  # XML#strip methods to clean XML & HTML.
 
 ##
 #
@@ -120,7 +119,7 @@ gem 'sixarm_ruby_person_name'  # PersonName mixin methods for a users model.
 ## Views
 #gem 'event_calendar'  # Render a calendar HTML view. [problem with undefined method id]
 gem 'high_voltage'  # Easily include static pages in your Rails app.
-gem 'meta-tags', '>= 2.0.0', '< 3', :require => 'meta_tags',  # Add Search Engine Optimization (SEO) tags to Rails views.
+gem 'meta-tags', :require => 'meta_tags',  # Add Search Engine Optimization (SEO) tags to Rails views.
 gem 'show_for'  # Wrap your objects with a helper to easily show them.
 gem 'simple_form'  # Forms made easy for Rails using a simple DSL and without markup.
 
@@ -449,8 +448,8 @@ gem 'ticketmaster-unfuddle'  # API to Unfuddle.
 ##
 
 group :assets do
-  gem 'sass-rails', "  ~> 3.1.0"  # Sass adapter for the Rails asset pipeline.
-  gem 'coffee-rails', "~> 3.1.0"  # CoffeScript adapter for the Rails asset pipeline.
+  gem 'sass-rails'  # Sass adapter for the Rails asset pipeline.
+  gem 'coffee-rails'  # CoffeScript adapter for the Rails asset pipeline.
 end
 
 ##
@@ -461,13 +460,13 @@ end
 
 group :development do
   gem 'annotate'  # Annotates Rails code based on the database schema.
-  gem 'better_errors', '>= 2.0.0'  # Better error page for Rack apps, with source, REPL, inspection, etc.
-  gem 'binding_of_caller', '>= 0.7.2', :platforms=>[:mri_21]  # Retrieve the binding of a method's caller.
+  gem 'better_errors'  # Better error page for Rack apps, with source, REPL, inspection, etc.
+  gem 'binding_of_caller', :platforms=>[:mri_21]  # Retrieve the binding of a method's caller.
   gem 'growl'  # Cross-platform notification sender.
   gem 'haml-rails'  # Provides Haml generators for Rails 3 and templating engine.
   gem 'launchy'  # Start cross-platform applications like a browser or email.
   gem 'libnotify'  # Ruby bindings for libnotify using FFI.
-  gem 'rails_layout', '>= 1.0.23'  # Generate Rails application layout files for use with various front-end frameworks.
+  gem 'rails_layout'  # Generate Rails application layout files for use with various front-end frameworks.
 end
 
 gem :development, :servers do
@@ -545,19 +544,19 @@ group :development, :guard do
   gem 'guard-compass'  # Rebuilds Compass SCSS and SASS files to stylesheets.
   gem 'guard-cucumber'  # Runs Cucumber features, much like autotest.
   gem 'guard-haml'  # Compiles HAML files to HTML.
-  gem 'guard-jasmine', '>= 1.18.0'  # Runs Jasmine specs.
-  gem 'guard-jasmine-headless-webkit', '>= 0.3.2'  # Runs Jasmine specs using headless WebKit.
-  gem 'guard-minitest', '>= 0.5.0'  # Runs MiniTest tests, much like autotest.
-  gem 'guard-rails', '>= 0.4.7'  # Restart the Rails development server automatically.
-  gem 'guard-rails-assets', '>= 0.1.3' # Compiles Rails 3.x assets.
-  gem 'guard-rails_best_practices', '>= 0.1.3'  # Code metric tool for quality of rails code.
-  gem 'guard-readme-on-github', '>= 0.0.1'  # Preview your README.md as if it was on github.
+  gem 'guard-jasmine'  # Runs Jasmine specs.
+  gem 'guard-jasmine-headless-webkit'  # Runs Jasmine specs using headless WebKit.
+  gem 'guard-minitest'  # Runs MiniTest tests, much like autotest.
+  gem 'guard-rails'  # Restart the Rails development server automatically.
+  gem 'guard-rails-assets'  # Compiles Rails 3.x assets.
+  gem 'guard-rails_best_practices'  # Code metric tool for quality of rails code.
+  gem 'guard-readme-on-github'  # Preview your README.md as if it was on github.
   gem 'guard-rspec'  # Runs rspec tests.
-  gem 'guard-sass', '>= 1.3.2'  # Compiles SASS files to CSS.
+  gem 'guard-sass'  # Compiles SASS files to CSS.
   gem 'guard-spork'  # Manage Spork DRb servers.
-  gem 'guard-sprockets', '>= 0.4.2'  # Packages our JavaScript files together.
-  gem 'guard-uglify', '>= 0.1.0'  # Compresses our application.js by using uglifyjs.
-  gem 'guard-yard', '>= 2.1.3'  #  Run and update the local YARD Documentation Server.
+  gem 'guard-sprockets'  # Packages our JavaScript files together.
+  gem 'guard-uglify'  # Compresses our application.js by using uglifyjs.
+  gem 'guard-yard'  #  Run and update the local YARD Documentation Server.
 end
 
 group :development, :documentation do
@@ -636,7 +635,7 @@ group :test, :minitest do
   gem 'minitest-metadata'  # Annotate tests with metadata key-value pairs.
   gem 'minitest-spec-rails'  # Drop in MiniTest::Spec support for Rails 3.
   gem 'minitest-reporters'  # Create customizable MiniTest output formats
-  gem 'sixarm_ruby_minitest_extensions', '>= 1.0.5'  # Minitest extra methods for common use cases.
+  gem 'sixarm_ruby_minitest_extensions'  # Minitest extra methods for common use cases.
 end
 
 group :test, :email do
@@ -769,19 +768,19 @@ gem 'nokogiri'
 # gem 'resque', require: 'resque/server' # Resque web interface
 
 # Assets
-gem 'coffee-rails', '~> 4.0.0'
-gem 'quiet_assets', '>= 1.0.3'  # Turn off Rails asset pipeline log.
+gem 'coffee-rails'
+gem 'quiet_assets'  # Turn off Rails asset pipeline log.
 # gem 'haml_assets'
 
 # gem 'handlebars_assets'
 gem 'i18n-js'
 gem 'jquery-turbolinks'
 gem 'less-rails'
-gem 'sass-rails', '~> 4.0.0'
+gem 'sass-rails'
 gem 'therubyracer'
 gem 'turbolinks'
 gem 'twitter-bootstrap-rails', github: 'diowa/twitter-bootstrap-rails', branch: 'fontawesome-3.2.1'
-gem 'uglifier', '>= 1.3.0'
+gem 'uglifier'
 
 group :development, :test do
   gem 'debugger'
@@ -817,9 +816,8 @@ gem 'sixarm_ruby_blob', '= 1.0.1'  # Track a blob of data such as a image file.
 gem 'sixarm_ruby_hash_more'  # Hash of hashes with easy calculations.
 gem 'sixarm_ruby_to_id', '= 1.0.8'  # Typecast and santize an object to and id or uuid.
 
-  gem 'codesake-dawn', '>= 1.0.0'  # Static analysis security scanner for Ruby web applications.
+  gem 'codesake-dawn',  # Static analysis security scanner for Ruby web applications.
   #gem 'simple_mock'  # Fast partial mocking with MiniTest::Mock and SimpleDelegator.
-  gem 'sixarm_ruby_fab', '= 1.0.2'  # Fabricate sample data suitable for testing.
   gem 'valid_attribute'  # Minimalist validation BDD for ActiveModel specs.
 
 ## Assets
