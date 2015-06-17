@@ -270,7 +270,7 @@ gem 'multi_json'  # Swappable JSON backends utilizing Yajl::Ruby, the JSON gem, 
 gem 'yajl-ruby'  # JSON implemenations as Ruby C bindings to the Yajl JSON stream library.
 
 ## BSON: Binary JSON
-gem 'bson', MONGO_VERSION  # Ruby Binary JSON serialization.
+gem 'bson', MONGO_VERSION  # Ruby Binary JSON serializtion.
 gem 'bson_ext', MONGO_VERSION  # C extensions to accelerate Binary JSON serialization.
 
 ############################################################################
@@ -711,7 +711,9 @@ group :test, :extras do
 end
 
 group :test, :quality do
+  gem 'brakeman'  # Detects security vulnerabilities in Rails apps via static analysis.
   gem 'bullet'  # Detects database N+1 queries, unused eager loading, and counter cache needs.
+  gem 'cane'  # Code quality threshold checking as part of your build.
   gem 'churn'  # Detects code that changes often for us to review, refactor, retest.
   gem 'coveralls', require: false  # Web service to track code coverage over time.
   gem 'debt_ceiling'  # Scores a technical debt metric and manages debt reduction.
@@ -723,7 +725,7 @@ group :test, :quality do
   gem 'metric_fu'  #  Meta-analytics that runs churn, reek, roodi, etc. and graphs results.
   gem 'reek'  # Detects code smells like coupling, clumping, large areas, short names.
   gem 'roodi'  # Ruby Object Oriented Design Inferometer: parses code to warn on design issues.
-  gem 'rails_best_practices'  # parse codes in vendor, spec, test and features directories.
+  #gem 'rails_best_practices'  # parse codes in vendor, spec, test and features directories. [Retired; less-maintained]
   gem 'rubocop'  # Ruby static code analyzer, based on the community Ruby style guide.
   gem 'rubycritic'  # Reporter that wraps gems such as Reek, Flay and Flog.
   gem 'sandi_meter'  # Static analysis tool for checking Ruby code for Sandi Metz' rules.
