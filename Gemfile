@@ -266,6 +266,7 @@ gem 'therubyracer'  # Embed the V8 Javascript Interpreter into Ruby.
 ## JSON: JavaScript Object Notation
 gem 'json'  # JSON implementation as a Ruby extension in C.
 gem 'json_pure'  # JSON implementation in pure Ruby.
+gem 'jsonapi-resources'  # Framework for serving JSON API standards.
 gem 'multi_json'  # Swappable JSON backends utilizing Yajl::Ruby, the JSON gem, JSON pure, etc.
 gem 'yajl-ruby'  # JSON implemenations as Ruby C bindings to the Yajl JSON stream library.
 
