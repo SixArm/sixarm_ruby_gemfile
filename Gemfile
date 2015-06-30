@@ -109,6 +109,7 @@ gem 'acts_as_singleton'  # Lightweight singleton library for Active Record model
 gem 'attribute_normalizer'  # Normalize attributes cleanly with code blocks and methods.
 #gem 'after_commit'  # Callback to trigger methods only after an entire transaction completes. [problem with ActiveRecord]
 gem 'dirty-memoize'  # Like Memoize, but designed for mutable and parametizable objects.
+gem 'classy_enum'  # Class-based enumerator gem for Rails.
 gem 'draper'  # Decorator pattern for domain models, to replace typical helpers.
 gem 'enumerated_attribute'  # Easy enum for your models, objects and views.
 gem 'pacecar'  # Generated scopes for ActiveRecord classes.
