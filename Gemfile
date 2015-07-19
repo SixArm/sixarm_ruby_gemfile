@@ -464,11 +464,13 @@ group :development do
   gem 'annotate'  # Annotates Rails code based on the database schema.
   gem 'better_errors'  # Better error page for Rack apps, with source, REPL, inspection, etc.
   gem 'binding_of_caller', :platforms=>[:mri_21]  # Retrieve the binding of a method's caller.
+  gem 'github-linguist'  # Detect file lanuages, highlight code, etc. in GitHub repos.
   gem 'growl'  # Cross-platform notification sender.
   gem 'haml-rails'  # Provides Haml generators for Rails 3 and templating engine.
   gem 'launchy'  # Start cross-platform applications like a browser or email.
   gem 'libnotify'  # Ruby bindings for libnotify using FFI.
   gem 'rails_layout'  # Generate Rails application layout files for use with various front-end frameworks.
+  gem 'rugged'  # Ruby bindings to git, using the libgit2 linkable C Git library.
 end
 
 gem :development, :servers do
