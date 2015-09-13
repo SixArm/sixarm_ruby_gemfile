@@ -171,6 +171,9 @@ gem 'sqlite3'  # Temporary lightweight database especially for testing.
 #gem 'activerecord-postgres-hstore'  # ActiveRecord can use Postgres hstore fast hash storage.
 #gem 'activerecord-postgres-array'  # ActiveRecord can use Postgres arrays
 
+## Languages
+gem twitter_cldr  # Common Locale Data Repository to format dates, plurals, and more.
+
 ## Seeds
 gem 'seedbank'  # Structure seed data for database content setup.
 
