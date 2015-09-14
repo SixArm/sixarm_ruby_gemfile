@@ -467,6 +467,7 @@ group :development do
   gem 'annotate'  # Annotates Rails code based on the database schema.
   gem 'better_errors'  # Better error page for Rack apps, with source, REPL, inspection, etc.
   gem 'binding_of_caller', :platforms=>[:mri_21]  # Retrieve the binding of a method's caller.
+  gem 'fit-commit'  # Git hook to validate your commit messages.
   gem 'github-linguist'  # Detect file lanuages, highlight code, etc. in GitHub repos.
   gem 'growl'  # Cross-platform notification sender.
   gem 'haml-rails'  # Provides Haml generators for Rails 3 and templating engine.
