@@ -49,7 +49,9 @@ gem 'rack-ssl'  # Rack middleware to force SSL/TLS.
 gem 'rack-test'  # Small, simple testing API for Rack apps.
 
 ## Ruby extensions
+gem 'algorithms'  # Ruby algorithms and data structures with optional fast C extensions.
 gem 'facets'  # Premier collection of extension methods for Ruby. [problem with overriding]
+gem 'hashie'  # Classes and mixins that make hashes more powerful.
 gem 'map'  # A hash with ordering, multiple access, structs and options.
 gem 'sixarm_ruby_array_slice'  # Ruby base class extension Array #slice methods.
 gem 'sixarm_ruby_blob'  # Blob of data abstract base class.
