@@ -574,6 +574,7 @@ group :development, :documentation do
   gem 'rdoc'  # Default documentation generation tool for Ruby code. Rails affects the version.
   gem 'sdoc'  # An rdoc generator for html with javascript search index. Rails affects the version.
   gem 'yard'  # Improved documentation generation tool for Ruby code with more features.
+  gem 'jazzy' # Generates documentation for Swift or Objective-C by using AST.
 end
 
 group :development, :commands do
