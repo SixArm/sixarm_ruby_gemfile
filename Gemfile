@@ -150,6 +150,9 @@ gem 'sanitize-url'  # Accepts a URL and returns one with JavaScript removed.
 gem 'sanitized_attributes'  # Automatic sanitization of incoming data for Ruby and Rails.
 #gem 'rack-sanitize'  # Remove malicious HTML from requests before it reaches our app. [needs older sanitize]
 
+## Experiments
+gem 'scientist'  # For refactoring based on scientific experiments.
+
 ##
 #
 # Data
