@@ -298,6 +298,7 @@ gem 'haml'  # HTML Abstraction Markup Language for writing elegant documents.
 gem 'happymapper'  # XML to object mapping library.
 gem 'hippo'  # Simple DSL to generate and parse HIPAA transaction sets.
 gem 'htmlentities'  # Encode/decode HTML & XML named and numerical entities.
+gem 'kramdown'  # Markdown interpreter in Ruby with speed and safety. [Supercedes redcarpet]
 gem 'libxml-ruby'  # Ruby language bindings for the GNOME Libxml2 toolkit.
 gem 'libxslt-ruby'  #  Ruby language bindings for the GNOME Libxslt toolkit.
 gem 'nokogiri'  # Parser for HTML, XML, SAX, and Reader with XPath and CSS selectors.
@@ -305,7 +306,7 @@ gem 'ParseTree'  # Extracts the parse tree for Ruby code and returns a sexp.
 gem 'prism'  # Microformat parser and HTML toolkit powered by Nokogiri.
 gem 'psych'  # A libyaml wrapper for Ruby with native libraries.
 gem 'rabl'  # Ruby API Builder Language templating with json, bson, xml, plist, msgpack.
-gem 'redcarpet'  # Markdown interpreter in Ruby with speed and safety.
+# gem 'redcarpet'  # Markdown interpreter in Ruby with speed and safety. [Superceded by kramdown]
 gem 'representative'  # XML/JSON representations of your Ruby objects.
 gem 'representative_view'  # Integrate Representative as an ActionView template format.
 gem 'ROXML'  # Binding XML and Ruby classes, bidirectionally.
@@ -748,6 +749,9 @@ group :test, :quality do
   gem 'sourcify'  # Workarounds before ruby-core has Proc#to_source & friends.
 end
 
+group :test, :osx do
+  gem 'flaky'  # Run Appium iOS/Android tests on OS X to measure flakiness.
+end
 
 ##
 #
