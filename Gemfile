@@ -18,7 +18,7 @@
 
 source 'http://rubygems.org'
 source 'http://gems.github.com'
-ruby '2.2.2'
+ruby '2.3.1'
 
 ##
 #
@@ -240,6 +240,7 @@ gem 'bcrypt'  # Secure algorithm for hashing passwords, native version.
 gem 'encryptor'  # Wrapper for the standard ruby OpenSSL library.
 gem 'pbkdf2'  # Password Based Key Derivation Function 2 (PBKDF2)
 gem 'scrypt'  # Passwords more secure against hardware brute-force attacks than PBKDF2 or bcrypt.
+gem 'rbnacl'  # Ruby implementation of Sodium NaCl cryptography.
 
 # Grep
 gem 'coypond'  # Semantic grep search for Ruby source code.
