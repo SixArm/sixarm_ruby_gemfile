@@ -481,6 +481,9 @@ group :development do
   gem 'libnotify'  # Ruby bindings for libnotify using FFI.
   gem 'rails_layout'  # Generate Rails application layout files for use with various front-end frameworks.
   gem 'rugged'  # Ruby bindings to git, using the libgit2 linkable C Git library.
+  install_if -> { RUBY_PLATFORM =~ /darwin/ } do
+    gem "mas"  # Mac App Store
+  end
 end
 
 gem :development, :servers do
