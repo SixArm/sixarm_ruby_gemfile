@@ -482,7 +482,10 @@ group :development do
   gem 'rails_layout'  # Generate Rails application layout files for use with various front-end frameworks.
   gem 'rugged'  # Ruby bindings to git, using the libgit2 linkable C Git library.
   install_if -> { RUBY_PLATFORM =~ /darwin/ } do
-    gem "mas"  # Mac App Store
+    gem 'mas'  # Mac App Store
+    gem 'xcpretty'  # Xcode pretty code formatter for xcodebuild
+    gem 'cocoapods'  # macOS package manager
+    gem 'cocoaseeds'  # cRuby bindings for the macOS Cocoa API
   end
 end
 
