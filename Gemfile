@@ -682,7 +682,7 @@ group :test, :email do
 end
 
 group :development, :test, :factories, :minifacture do
-  'gem 'minifacture'  # Factory creators in the spirit of minitest.
+  gem 'minifacture'  # Factory creators in the spirit of minitest.
 end
 
 group :development, :test, :factories, :factory_girl do
