@@ -599,6 +599,23 @@ group :development, :commands do
   gem 'thor'  # Scripting framework that replaces rake, sake and rubigen.
 end
 
+group :development, :tty do
+  gem 'tty'  # Toolbox for developing command line clients.
+  gem 'tty-color'  # Terminal color capabilities detection.
+  gem 'tty-command'  # Execute shell commands capture their IO.
+  gem 'tty-cursor'  # Terminal cursor movement and manipulation.
+  gem 'tty-editor'  # Open a file or text in in the user's preferred editor.
+  gem 'tty-file'  # File manipulation utility methods.
+  gem 'tty-pager'  # Terminal output paging in a cross-platform way.
+  gem 'tty-platform'  # Query methods for detecting different operating systems.
+  gem 'tty-progressbar'  # Progress bar drawing in terminal emulators.
+  gem 'tty-prompt'  # Interactive command line prompt.
+  gem 'tty-screen'  # Terminal screen size detection.
+  gem 'tty-spinner'  # Terminal spinner for tasks that have non-deterministic time frame.
+  gem 'tty-table'  # A flexible and intuitive table generator.
+  gem 'tty-which'  # Platform independent implementation of Unix which command.
+end
+
 group :development, :vlad do
   gem 'vlad'  # Pragmatic application deployment automation.
   gem 'vlad-git'  # Vlad plugin for git version control.
