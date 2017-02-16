@@ -38,6 +38,9 @@ gem 'jquery-rails'  # Connects jQuery JavaScript library to Rails.
 gem 'jquery-tmpl-rails'  # jQuery Templates for the Rails asset pipeline.
 gem 'turbolinks'  # Fast link following using AJAX and Rails Asset Pipeline.
 
+## Sinatra
+gem 'sinatra'  # Lightweight web framework akin to Rails.
+
 ## Rack
 gem 'rack'  # Middleware for web applications in Ruby.
 gem 'rack-accept'  # HTTP Accept and Accept Charset, Encoding, and Language.
