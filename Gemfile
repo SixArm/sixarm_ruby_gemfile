@@ -277,6 +277,7 @@ gem 'json_pure'  # JSON implementation in pure Ruby.
 gem 'jsonapi-resources'  # Framework for serving JSON API standards.
 gem 'multi_json'  # Swappable JSON backends utilizing Yajl::Ruby, the JSON gem, JSON pure, etc.
 gem 'yajl-ruby'  # JSON implemenations as Ruby C bindings to the Yajl JSON stream library.
+gem 'oj'  # Fast JSON parser with extras for Rails. Compare `ox` gem.
 
 ## BSON: Binary JSON
 gem 'bson', MONGO_VERSION  # Ruby Binary JSON serializtion.
@@ -302,6 +303,7 @@ gem 'kramdown'  # Markdown interpreter in Ruby with speed and safety. [Supercede
 gem 'libxml-ruby'  # Ruby language bindings for the GNOME Libxml2 toolkit.
 gem 'libxslt-ruby'  #  Ruby language bindings for the GNOME Libxslt toolkit.
 gem 'nokogiri'  # Parser for HTML, XML, SAX, and Reader with XPath and CSS selectors.
+gem 'ox'  # Fast XML parser. Compare `oj` gem.
 gem 'ParseTree'  # Extracts the parse tree for Ruby code and returns a sexp.
 gem 'prism'  # Microformat parser and HTML toolkit powered by Nokogiri.
 gem 'psych'  # A libyaml wrapper for Ruby with native libraries.
