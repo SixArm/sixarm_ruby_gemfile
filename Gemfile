@@ -721,6 +721,13 @@ group :test, :capybara do
   gem 'hermes'  # Utilities for Capybara and ActiveSupport::TestCase.
 end
 
+# To use Selenium, we prefer to install the selenium server standalone.
+#
+# Example:
+#
+#   ```shell
+#   brew install selenium-server-standalone
+#   ```
 group :test, :selenium do
   gem 'selenium-client'  # Ruby driver for Selenium Remote Control.
   gem 'selenium-rc'  # Selenium Server packaged as a gem
