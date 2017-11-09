@@ -2,7 +2,7 @@
 
 * Docs: <http://sixarm.com/sixarm_ruby_gemfile/doc>
 * Repo: <http://github.com/sixarm/sixarm_ruby_gemfile>
-<!--HEADER-SHUT-->
+<!--header-shut-->
 
 ## Introduction
 
