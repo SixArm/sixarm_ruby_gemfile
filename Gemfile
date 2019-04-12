@@ -45,6 +45,9 @@ gem 'rails'  # Ruby On Rails, our main rapid development framework.
 gem 'jquery-rails'  # Connects jQuery JavaScript library to Rails.
 gem 'jquery-tmpl-rails'  # jQuery Templates for the Rails asset pipeline.
 gem 'turbolinks'  # Fast link following using AJAX and Rails Asset Pipeline.
+gem 'less-rails'  # Less CSS adapter for the Rails asset pipeline.
+gem 'sass-rails'  # Sass CSS adapter for the Rails asset pipeline.
+gem 'coffee-rails'  # CoffeScript adapter for the Rails asset pipeline.
 
 ## Sinatra
 gem 'sinatra'  # Lightweight web framework akin to Rails.
@@ -466,18 +469,6 @@ gem 'ticketmaster-pivotal'  # API to Pivotal Tracker.
 gem 'ticketmaster-redmine'  # API to Redmine.
 gem 'ticketmaster-trac'  # API to Trac.
 gem 'ticketmaster-unfuddle'  # API to Unfuddle.
-
-##
-#
-# Assets
-#
-##
-
-group :assets do
-  gem 'less-rails'  # Less CSS adapter for the Rails asset pipeline.
-  gem 'sass-rails'  # Sass CSS adapter for the Rails asset pipeline.
-  gem 'coffee-rails'  # CoffeScript adapter for the Rails asset pipeline.
-end
 
 ##
 #
