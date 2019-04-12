@@ -46,7 +46,7 @@ gem 'jquery-rails'  # Connects jQuery JavaScript library to Rails.
 gem 'jquery-tmpl-rails'  # jQuery Templates for the Rails asset pipeline.
 gem 'turbolinks'  # Fast link following using AJAX and Rails Asset Pipeline.
 gem 'less-rails'  # Less CSS adapter for the Rails asset pipeline.
-gem 'sass-rails'  # Sass CSS adapter for the Rails asset pipeline.
+gem 'sassc-rails'  # Sass CSS adapter for the Rails asset pipeline.
 gem 'coffee-rails'  # CoffeScript adapter for the Rails asset pipeline.
 
 ## Sinatra
