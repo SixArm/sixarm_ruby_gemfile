@@ -645,6 +645,7 @@ end
 
 group :development, :test do
   gem 'ruby-prof'  # Fast code profiler for Ruby with native C code.
+  gem 'ruby-debug-ide'  # Connect Ruby to IntelliJ, RubyMine, etc.
 end
 
 group :development, :test, :factory, :minifacture do
